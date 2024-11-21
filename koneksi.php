@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$database = "school_ukk_hotel" ;
+$database = "web_inventory" ;
 
 $db = mysqli_connect($host , $user , $pass , $database);
 

@@ -1,60 +1,63 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
 
-require_once 'app/config/views_config.php';
-require_once 'app/helper/view_helper.php';
-require_once 'app/helper/upload_helper.php';
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="icon" href="assets/img/UIS.png">
+  <title></title>
+  <link href="css/styles.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
 
-// Define constants
-define('BASE_URL', 'localhost/me/hotel-php-native/');
-define('APP_PATH', __DIR__ . '/app/');
-define('CONTROLLERS_PATH', APP_PATH . 'controllers/');
-define('MODELS_PATH', APP_PATH . 'models/');
+<body class="bg-warning">
+  <div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+      <main>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-5">
+              <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header">
+                  <h4 class="text-center font-weight-light my-4"><img src="assets/img/logo.png" width="40%" height="40%">
+                    <p></p>
+                    <strong><b>
+                        <font color="darkblue" face="Times New Romans">LOGIN APLIKASI INVENTORY</font>
+                      </b></strong>
+                  </h4>
+                </div>
+                <div class="card-body">
+                  <form name="form" action="cek_login.php" method="post">
+                    <div class="form-group"><label>Username</label>
+                      <input class="form-control" type="text" name="username" placeholder="Enter Your Username" />
+                    </div>
+                    <div class="form-group"><label>Password</label>
+                      <input class="form-control" type="password" name="password" placeholder="Enter Your Password" />
+                    </div>
+                    <div class="form-group d-flex mt-4 mb-0">
+                      <input class="btn btn-primary btn-block" type="submit" name="submit" value="Sign Up" />
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer text-center">
+                  <div class="small">
+                    <font color="darkblue">Copyright &copy; FKOM UVERS <?php echo date('Y'); ?></font>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
 
+  </div>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="js/scripts.js"></script>
+</body>
 
-// Autoloading
-spl_autoload_register(function($class) {
-    // Convert class name to lowercase and append ".php" extension
-    $file = strtolower($class) . '.php';
-
-    // Check if the file exists in models directory
-    $path = MODELS_PATH . $file;
-    if (file_exists($path)) {
-        require_once $path;
-        return;
-    }
-
-    // Check if the file exists in controllers directory
-    $path = CONTROLLERS_PATH . $file;
-    if (file_exists($path)) {
-        require_once $path;
-    }
-});
-
-// Routing
-$url = isset($_GET['url']) ? $_GET['url'] : '';
-$route = explode('/', $url);
-
-$controller = isset($route[0]) && !empty($route[0]) ? ucfirst($route[0]) : 'Welcome';
-$method = isset($route[1]) && !empty($route[1]) ? $route[1] : 'index';
-
-// Load configurations
-// Start session if needed
-
-// Include controller
-$controllerFile = CONTROLLERS_PATH . $controller . '.php';
-if (file_exists($controllerFile)) {
-    require_once $controllerFile;
-} else {
-    die('Controller not found');
-}
-
-// Instantiate controller
-$controllerInstance = new $controller();
-
-// Call method
-if (method_exists($controllerInstance, $method)) {
-    // Call the method
-    call_user_func_array([$controllerInstance, $method], array_slice($route, 2));
-} else {
-    die('Method not found');
-}
+</html>
