@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2023 at 02:43 PM
+-- Generation Time: Nov 03, 2025 at 02:43 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,11 +43,11 @@ CREATE TABLE `tbl_barang` (
 --
 
 INSERT INTO `tbl_barang` (`kode_barang`, `nama_barang`, `id_kategori`, `id_supplier`, `harga`, `stock`, `tanggal`, `keterangan`) VALUES
-('b001', 'Monitor LED', 1, 1, 2000000, 3, '2023-10-19', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'),
-('B002', 'Monitor 2', 1, 1, 500, 1, '2023-10-27', 'A'),
-('B003', 'Monitor 3', 1, 1, 3, 3, '2023-10-27', '3'),
-('B004', 'Monitor 4', 1, 2, 4, 4, '2023-10-27', '4'),
-('B005', 'Monitor 5', 1, 1, 5, 5, '2023-10-28', '5');
+('b001', 'Monitor LED', 1, 1, 2000000, 3, '2025-10-19', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'),
+('B002', 'Monitor 2', 1, 1, 500, 1, '2025-10-27', 'A'),
+('B003', 'Monitor 3', 1, 1, 3, 3, '2025-10-27', '3'),
+('B004', 'Monitor 4', 1, 2, 4, 4, '2025-10-27', '4'),
+('B005', 'Monitor 5', 1, 1, 5, 5, '2025-10-28', '5');
 
 -- --------------------------------------------------------
 

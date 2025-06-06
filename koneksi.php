@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$database = "web_inventory" ;
+$database = "others_nandohong_inventory"; ;
 
 $db = mysqli_connect($host , $user , $pass , $database);
 
