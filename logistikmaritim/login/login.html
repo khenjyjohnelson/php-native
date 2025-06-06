@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Logistics Maritime</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Left Side - Login Form -->
+        <div class="login-form-section">
+            <div class="form-container">
+                <!-- Logo -->
+                <div class="logo-section">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <img src="/placeholder.svg?height=60&width=60&text=🚢" alt="Logo">
+                        </div>
+                        <div class="logo-text">
+                            <h1>Logistics Maritime</h1>
+                            <p>Sistem Manajemen Logistik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <div class="login-form">
+                    <h2>Masuk ke Akun Anda</h2>
+                    <p class="form-subtitle">Silakan masukkan kredensial Anda untuk mengakses dashboard</p>
+
+                    <form id="loginForm" class="auth-form" action="admin-dashboard.html">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">📧</span>
+                                <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-wrapper">
+                                <span class="input-icon">🔒</span>
+                                <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword()">👁️</button>
+                            </div>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="remember">
+                                <span class="checkmark"></span>
+                                Ingat saya
+                            </label>
+                            <a href="#" class="forgot-password">Lupa password?</a>
+                        </div>
+
+                        <button type="submit" class="btn-login">
+                            <span class="btn-text">Masuk</span>
+                            <span class="btn-loading" style="display: none;">Loading...</span>
+                        </button>
+
+                        <div class="divider">
+                            <span>atau</span>
+                        </div>
+
+                        <button type="button" class="btn-google">
+                            <img src="/placeholder.svg?height=20&width=20&text=G" alt="Google">
+                            Masuk dengan Google
+                        </button>
+
+                        <div class="register-link">
+                            <p>Belum punya akun? <a href="register.html">Daftar sekarang</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Image/Info -->
+        <div class="login-image-section">
+            <div class="image-overlay">
+                <div class="image-content">
+                    <h2>Selamat Datang Kembali!</h2>
+                    <p>Kelola operasi logistik maritim Anda dengan mudah dan efisien melalui platform terpercaya kami.</p>
+                    
+                    <div class="features-list">
+                        <div class="feature-item">
+                            <span class="feature-icon">🚢</span>
+                            <span>Tracking Real-time</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">📊</span>
+                            <span>Dashboard Analytics</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔒</span>
+                            <span>Keamanan Terjamin</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Memverifikasi kredensial...</p>
+        </div>
+    </div>
+
+    <!-- Alert Messages -->
+    <div id="alertContainer" class="alert-container"></div>
+
+    <script>
+        // Toggle password visibility (keeping this as it's UI interaction)
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleBtn.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleBtn.textContent = '👁️';
+            }
+        }
+
+        // Input focus effects (keeping this as it's animation-related)
+        document.querySelectorAll('.auth-form input').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.parentElement.classList.remove('focused');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

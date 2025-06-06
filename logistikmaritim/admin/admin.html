@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Admin - Logistics Maritime</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="/placeholder.svg?height=40&width=40&text=🚢" alt="Logo">
+                </div>
+                <span>Logistics Maritime</span>
+            </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li class="nav-item active">
+                    <a href="#dashboard" class="nav-link" data-section="dashboard">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pengiriman" class="nav-link" data-section="pengiriman">
+                        <span class="nav-icon">📦</span>
+                        <span class="nav-text">Data Pengiriman</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#jadwal" class="nav-link" data-section="jadwal">
+                        <span class="nav-icon">🚢</span>
+                        <span class="nav-text">Jadwal Kapal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#karir" class="nav-link" data-section="karir">
+                        <span class="nav-icon">👥</span>
+                        <span class="nav-text">Data Karir</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#users" class="nav-link" data-section="users">
+                        <span class="nav-icon">👤</span>
+                        <span class="nav-text">Manajemen User</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#settings" class="nav-link" data-section="settings">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Pengaturan</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-left">
+                <button class="sidebar-toggle">☰</button>
+                <h1 class="page-title">Dashboard Admin</h1>
+            </div>
+            <div class="header-right">
+                <div class="admin-profile">
+                    <img src="/placeholder.svg?height=40&width=40&text=👤" alt="Admin" class="profile-avatar">
+                    <div class="profile-info">
+                        <span class="profile-name">Admin Logistik</span>
+                        <span class="profile-role">Super Admin</span>
+                    </div>
+                    <button class="profile-dropdown">▼</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+                    <div class="stat-info">
+                        <h3>Total Pengiriman</h3>
+                        <p class="stat-number">1,234</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🚢</div>
+                    <div class="stat-info">
+                        <h3>Kapal Aktif</h3>
+                        <p class="stat-number">10</p>
+                        <span class="stat-change">8 dalam perjalanan</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-info">
+                        <h3>Lamaran Kerja</h3>
+                        <p class="stat-number">45</p>
+                        <span class="stat-change positive">+5 hari ini</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-charts">
+                <div class="chart-card">
+                    <h3>Grafik Pengiriman Bulanan</h3>
+                    <div class="chart-placeholder">
+                        <img src="/placeholder.svg?height=300&width=600&text=Chart+Pengiriman" alt="Chart">
+                    </div>
+                </div>
+                <div class="recent-activities">
+                    <h3>Aktivitas Terbaru</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <span class="activity-time">10:30</span>
+                            <span class="activity-text">Pengiriman SHIP123456789ID telah sampai di Jakarta</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">09:15</span>
+                            <span class="activity-text">Kapal LGMRT-005 berangkat dari Makassar</span>
+                        </div>
+                        <div class="activity-item">
+                            <span class="activity-time">08:45</span>
+                            <span class="activity-text">Lamaran baru diterima untuk posisi Captain</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Pengiriman Section -->
+        <section id="pengiriman" class="content-section">
+            <div class="section-header">
+                <h2>Manajemen Data Pengiriman</h2>
+                <button class="btn btn-primary" onclick="openModal('addShipmentModal')">+ Tambah Pengiriman</button>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ID Pengiriman</th>
+                            <th>Pengirim</th>
+                            <th>Penerima</th>
+                            <th>Asal</th>
+                            <th>Tujuan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>SHIP123456789ID</td>
+                            <td>Andi Pratama</td>
+                            <td>Siti Nurhaliza</td>
+                            <td>Batam</td>
+                            <td>Jakarta</td>
+                            <td><span class="status-badge status-progress">Dalam Perjalanan</span></td>
+                            <td>
+                                <button class="btn-action edit" onclick="editShipment('SHIP123456789ID')">✏️</button>
+                                <button class="btn-action delete" onclick="deleteShipment('SHIP123456789ID')">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>SHIP987654321ID</td>
+                            <td>Budi Santoso</td>
+                            <td>Maya Sari</td>
+                            <td>Semarang</td>
+                            <td>Makassar</td>
+                            <td><span class="status-badge status-delivered">Terkirim</span></td>
+                            <td>
+                                <button class="btn-action edit" onclick="editShipment('SHIP987654321ID')">✏️</button>
+                                <button class="btn-action delete" onclick="deleteShipment('SHIP987654321ID')">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Jadwal Kapal Section -->
+        <section id="jadwal" class="content-section">
+            <div class="section-header">
+                <h2>Manajemen Jadwal Kapal</h2>
+                <button class="btn btn-primary" onclick="openModal('addScheduleModal')">+ Tambah Jadwal</button>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nama Kapal</th>
+                            <th>Pelabuhan Asal</th>
+                            <th>Pelabuhan Tujuan</th>
+                            <th>Tanggal Berangkat</th>
+                            <th>Estimasi Tiba</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LGMRT-001</td>
+                            <td>Batam</td>
+                            <td>Jakarta</td>
+                            <td>01 April 2025</td>
+                            <td>08 April 2025</td>
+                            <td><span class="status-badge status-available">Tersedia</span></td>
+                            <td>
+                                <button class="btn-action edit" onclick="editSchedule('LGMRT-001')">✏️</button>
+                                <button class="btn-action delete" onclick="deleteSchedule('LGMRT-001')">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>LGMRT-002</td>
+                            <td>Aceh</td>
+                            <td>Jakarta</td>
+                            <td>05 April 2025</td>
+                            <td>12 April 2025</td>
+                            <td><span class="status-badge status-full">Penuh</span></td>
+                            <td>
+                                <button class="btn-action edit" onclick="editSchedule('LGMRT-002')">✏️</button>
+                                <button class="btn-action delete" onclick="deleteSchedule('LGMRT-002')">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Data Karir Section -->
+        <section id="karir" class="content-section">
+            <div class="section-header">
+                <h2>Manajemen Data Karir</h2>
+                <button class="btn btn-primary" onclick="openModal('addJobModal')">+ Tambah Lowongan</button>
+            </div>
+            
+            <div class="career-grid">
+                <div class="career-card">
+                    <h3>Captain</h3>
+                    <p class="job-location">Jakarta</p>
+                    <p class="job-applicants">12 Pelamar</p>
+                    <div class="job-actions">
+                        <button class="btn btn-secondary" onclick="viewApplicants('captain')">Lihat Pelamar</button>
+                        <button class="btn btn-primary" onclick="editJob('captain')">Edit</button>
+                    </div>
+                </div>
+                <div class="career-card">
+                    <h3>Logistics Coordinator</h3>
+                    <p class="job-location">Surabaya</p>
+                    <p class="job-applicants">8 Pelamar</p>
+                    <div class="job-actions">
+                        <button class="btn btn-secondary" onclick="viewApplicants('coordinator')">Lihat Pelamar</button>
+                        <button class="btn btn-primary" onclick="editJob('coordinator')">Edit</button>
+                    </div>
+                </div>
+                <div class="career-card">
+                    <h3>Port Manager</h3>
+                    <p class="job-location">Batam</p>
+                    <p class="job-applicants">15 Pelamar</p>
+                    <div class="job-actions">
+                        <button class="btn btn-secondary" onclick="viewApplicants('manager')">Lihat Pelamar</button>
+                        <button class="btn btn-primary" onclick="editJob('manager')">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Pelabuhan Section -->
+        <section id="pelabuhan" class="content-section">
+            <div class="section-header">
+                <h2>Manajemen Data Pelabuhan</h2>
+                <button class="btn btn-primary" onclick="openModal('addPortModal')">+ Tambah Pelabuhan</button>
+            </div>
+            
+            <div class="ports-grid">
+                <div class="port-admin-card">
+                    <img src="/placeholder.svg?height=150&width=200&text=Batam+Port" alt="Pelabuhan Batam">
+                    <div class="port-info">
+                        <h3>Pelabuhan Batam</h3>
+                        <p>Batu Ampar Center</p>
+                        <p class="port-status active">Aktif</p>
+                        <div class="port-actions">
+                            <button class="btn btn-secondary" onclick="editPort('batam')">Edit</button>
+                            <button class="btn btn-danger" onclick="deletePort('batam')">Hapus</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="port-admin-card">
+                    <img src="/placeholder.svg?height=150&width=200&text=Jakarta+Port" alt="Pelabuhan Jakarta">
+                    <div class="port-info">
+                        <h3>Pelabuhan Jakarta</h3>
+                        <p>Tanjung Priok</p>
+                        <p class="port-status active">Aktif</p>
+                        <div class="port-actions">
+                            <button class="btn btn-secondary" onclick="editPort('jakarta')">Edit</button>
+                            <button class="btn btn-danger" onclick="deletePort('jakarta')">Hapus</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Management Section -->
+        <section id="users" class="content-section">
+            <div class="section-header">
+                <h2>Manajemen User</h2>
+                <button class="btn btn-primary" onclick="openModal('addUserModal')">+ Tambah User</button>
+            </div>
+            
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Terakhir Login</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Admin Logistik</td>
+                            <td>admin@logisticmaritime.com</td>
+                            <td>Super Admin</td>
+                            <td><span class="status-badge status-active">Aktif</span></td>
+                            <td>Hari ini, 10:30</td>
+                            <td>
+                                <button class="btn-action edit" onclick="editUser('admin')">✏️</button>
+                                <button class="btn-action delete" onclick="deleteUser('admin')">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Operator Jakarta</td>
+                            <td>operator.jkt@logisticmaritime.com</td>
+                            <td>Operator</td>
+                            <td><span class="status-badge status-active">Aktif</span></td>
+                            <td>Kemarin, 16:45</td>
+                            <td>
+                                <button class="btn-action edit" onclick="editUser('operator')">✏️</button>
+                                <button class="btn-action delete" onclick="deleteUser('operator')">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Laporan Section -->
+        <section id="laporan" class="content-section">
+            <div class="section-header">
+                <h2>Laporan & Analitik</h2>
+                <button class="btn btn-primary" onclick="generateReport()">Generate Laporan</button>
+            </div>
+            
+            <div class="report-cards">
+                <div class="report-card">
+                    <h3>Laporan Pengiriman</h3>
+                    <p>Laporan detail pengiriman bulanan</p>
+                    <button class="btn btn-secondary">Download PDF</button>
+                </div>
+                <div class="report-card">
+                    <h3>Laporan Keuangan</h3>
+                    <p>Laporan pendapatan dan pengeluaran</p>
+                    <button class="btn btn-secondary">Download Excel</button>
+                </div>
+                <div class="report-card">
+                    <h3>Laporan Operasional</h3>
+                    <p>Laporan operasional kapal dan pelabuhan</p>
+                    <button class="btn btn-secondary">Download PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section -->
+        <section id="settings" class="content-section">
+            <div class="section-header">
+                <h2>Pengaturan Sistem</h2>
+            </div>
+            
+            <div class="settings-grid">
+                <div class="settings-card">
+                    <h3>Profil Admin</h3>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Nama Lengkap</label>
+                            <input type="text" value="Admin Logistik" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" value="admin@logisticmaritime.com" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Password Baru</label>
+                            <input type="password" placeholder="Kosongkan jika tidak ingin mengubah" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </form>
+                </div>
+                
+                <div class="settings-card">
+                    <h3>Pengaturan Sistem</h3>
+                    <form class="settings-form">
+                        <div class="form-group">
+                            <label>Nama Perusahaan</label>
+                            <input type="text" value="Logistics Maritime" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Perusahaan</label>
+                            <input type="email" value="logisticmaritime@gmail.com" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Telepon Perusahaan</label>
+                            <input type="tel" value="+62812-3456-7810" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan Pengaturan</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="addShipmentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Tambah Pengiriman Baru</h3>
+                <button class="modal-close" onclick="closeModal('addShipmentModal')">&times;</button>
+            </div>
+            <form class="modal-form">
+                <div class="form-group">
+                    <label>ID Pengiriman</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Nama Pengirim</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Nama Penerima</label>
+                    <input type="text" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Pelabuhan Asal</label>
+                    <select class="form-control" required>
+                        <option value="">Pilih Pelabuhan</option>
+                        <option value="batam">Batam</option>
+                        <option value="jakarta">Jakarta</option>
+                        <option value="semarang">Semarang</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Pelabuhan Tujuan</label>
+                    <select class="form-control" required>
+                        <option value="">Pilih Pelabuhan</option>
+                        <option value="batam">Batam</option>
+                        <option value="jakarta">Jakarta</option>
+                        <option value="semarang">Semarang</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addShipmentModal')">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+            const sidebarToggle = document.querySelector('.sidebar-toggle');
+            const sidebar = document.querySelector('.sidebar');
+
+            // Navigation switching
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all nav items and sections
+                    navLinks.forEach(l => l.parentElement.classList.remove('active'));
+                    sections.forEach(s => s.classList.remove('active'));
+                    
+                    // Add active class to clicked nav item
+                    this.parentElement.classList.add('active');
+                    
+                    // Show corresponding section
+                    const sectionId = this.getAttribute('data-section');
+                    document.getElementById(sectionId).classList.add('active');
+                    
+                    // Update page title
+                    document.querySelector('.page-title').textContent = this.querySelector('.nav-text').textContent;
+                });
+            });
+
+            // Sidebar toggle
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+            });
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // CRUD functions (placeholder)
+        function editShipment(id) {
+            alert('Edit pengiriman: ' + id);
+        }
+
+        function deleteShipment(id) {
+            if (confirm('Hapus pengiriman ' + id + '?')) {
+                alert('Pengiriman dihapus');
+            }
+        }
+
+        function editSchedule(ship) {
+            alert('Edit jadwal kapal: ' + ship);
+        }
+
+        function deleteSchedule(ship) {
+            if (confirm('Hapus jadwal kapal ' + ship + '?')) {
+                alert('Jadwal dihapus');
+            }
+        }
+
+        function editJob(job) {
+            alert('Edit lowongan: ' + job);
+        }
+
+        function viewApplicants(job) {
+            alert('Lihat pelamar untuk: ' + job);
+        }
+
+        function editPort(port) {
+            alert('Edit pelabuhan: ' + port);
+        }
+
+        function deletePort(port) {
+            if (confirm('Hapus pelabuhan ' + port + '?')) {
+                alert('Pelabuhan dihapus');
+            }
+        }
+
+        function editUser(user) {
+            alert('Edit user: ' + user);
+        }
+
+        function deleteUser(user) {
+            if (confirm('Hapus user ' + user + '?')) {
+                alert('User dihapus');
+            }
+        }
+
+        function generateReport() {
+            alert('Generating laporan...');
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
