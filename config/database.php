@@ -10,11 +10,11 @@ class Database {
     
     private function __construct() {
         $this->config = [
-            'host' => DB_HOST,
-            'name' => DB_NAME,
-            'user' => DB_USER,
-            'pass' => DB_PASS,
-            'charset' => DB_CHARSET
+            'host' => 'localhost',
+            'name' => 'logistik_maritim',
+            'user' => 'root',
+            'pass' => '',
+            'charset' => 'utf8mb4'
         ];
         
         $this->connect();

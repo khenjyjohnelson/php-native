@@ -177,7 +177,7 @@ function session_clear() {
     return Session::getInstance()->clear();
 }
 
-function session_destroy() {
+function session_bye() {
     return Session::getInstance()->destroy();
 }
 
