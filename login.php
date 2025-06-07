@@ -50,72 +50,97 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-
-// Include header
-require_once 'includes/header.php';
 ?>
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0">Login</h4>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Logistics Maritime</title>
+    <link rel="stylesheet" href="logistikmaritim/login/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- Left Side - Image/Info -->
+        <div class="login-image-section">
+            <div class="image-overlay">
+                <div class="image-content">
+                    <h2>Selamat Datang Kembali!</h2>
+                    <p>Masuk untuk mengelola pengiriman Anda dan nikmati layanan logistik maritim terbaik.</p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🚢</span>
+                            <div class="benefit-text">
+                                <h4>Pelacakan Real-Time</h4>
+                                <p>Lacak status pengiriman kapan saja</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🔒</span>
+                            <div class="benefit-text">
+                                <h4>Akun Aman</h4>
+                                <p>Keamanan data dan privasi terjamin</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⚡</span>
+                            <div class="benefit-text">
+                                <h4>Respon Cepat</h4>
+                                <p>Dukungan pelanggan 24/7</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
+            </div>
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="login-form-section">
+            <div class="form-container">
+                <!-- Logo -->
+                <div class="logo-section">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <img src="/me/php-native/logistikmaritim/image/logo.png" alt="Logo" height="50">
+                        </div>
+                        <div class="logo-text">
+                            <h1>Logistics Maritime</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <div class="login-form">
+                    <h2>Masuk ke Akun Anda</h2>
+                    <p class="form-subtitle">Silakan login untuk melanjutkan</p>
+
                     <?php if ($error): ?>
                         <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
                     <?php endif; ?>
 
-                    <form method="POST" action="" class="needs-validation" novalidate>
-                        <div class="form-group mb-3">
+                    <form method="POST" action="" class="auth-form" novalidate>
+                        <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                            <div class="invalid-feedback">Please enter your username</div>
+                            <input type="text" id="username" name="username" placeholder="Username" required>
                         </div>
-
-                        <div class="form-group mb-3">
+                        <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                            <div class="invalid-feedback">Please enter your password</div>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
                         </div>
-
-                        <div class="form-group mb-3">
+                        <div class="form-group">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="remember" name="remember">
-                                <label class="form-check-label" for="remember">Remember me</label>
+                                <input type="checkbox" id="remember" name="remember">
+                                <label for="remember">Ingat saya</label>
                             </div>
                         </div>
-
-                        <button type="submit" class="btn btn-primary">Login</button>
+                        <button type="submit" class="btn-login">Login</button>
                     </form>
-
-                    <div class="mt-3">
-                        <p>Don't have an account? <a href="register.php">Register here</a></p>
+                    <div class="register-link">
+                        <p>Belum punya akun? <a href="register.php">Daftar di sini</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<script>
-    // Form validation
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            var forms = document.getElementsByClassName('needs-validation');
-            Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script>
-
-<?php require_once 'includes/footer.php'; ?>
+</body>
+</html>

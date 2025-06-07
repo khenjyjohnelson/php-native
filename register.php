@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'] ?? '';
     $confirm_password = $_POST['confirm_password'] ?? '';
     $full_name = trim($_POST['full_name'] ?? '');
-    
+
     // Validate input
     if (empty($username) || empty($email) || empty($password) || empty($confirm_password) || empty($full_name)) {
         $error = 'Please fill in all fields';
@@ -31,13 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Check if username or email already exists
         $sql = "SELECT id FROM users WHERE username = ? OR email = ? LIMIT 1";
         $existing_user = get_row($sql, 'ss', [$username, $email]);
-        
+
         if ($existing_user) {
             $error = 'Username or email already exists';
         } else {
             // Hash password
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-            
+
             // Insert new user
             $data = [
                 'username' => $username,
@@ -47,9 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'role' => 'user',
                 'status' => 'active'
             ];
-            
+
             $user_id = insert_data('users', $data);
-            
+
             if ($user_id) {
                 // Log activity
                 $sql = "INSERT INTO activity_logs (user_id, action, description, ip_address, user_agent) VALUES (?, 'register', 'New user registration', ?, ?)";
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SERVER['REMOTE_ADDR'],
                     $_SERVER['HTTP_USER_AGENT']
                 ]);
-                
+
                 $success = 'Registration successful! You can now login.';
             } else {
                 $error = 'Registration failed. Please try again.';
@@ -66,96 +66,116 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
-
-// Include header
-require_once 'includes/header.php';
 ?>
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="mb-0">Register</h4>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Logistics Maritime</title>
+    <link rel="stylesheet" href="logistikmaritim/login/register.css">
+</head>
+<body>
+    <div class="register-container">
+        <!-- Left Side - Image/Info -->
+        <div class="register-image-section">
+            <div class="image-overlay">
+                <div class="image-content">
+                    <h2>Bergabung dengan Kami!</h2>
+                    <p>Daftarkan diri Anda dan nikmati layanan logistik maritim terbaik dengan teknologi terdepan.</p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌊</span>
+                            <div class="benefit-text">
+                                <h4>Jaringan Luas</h4>
+                                <p>10+ pelabuhan di seluruh Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⚡</span>
+                            <div class="benefit-text">
+                                <h4>Pengiriman Cepat</h4>
+                                <p>Estimasi waktu yang akurat</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🔐</span>
+                            <div class="benefit-text">
+                                <h4>Keamanan Terjamin</h4>
+                                <p>Asuransi dan tracking real-time</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
+            </div>
+        </div>
+
+        <!-- Right Side - Register Form -->
+        <div class="register-form-section">
+            <div class="form-container">
+                <!-- Logo -->
+                <div class="logo-section">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <img src="/me/php-native/logistikmaritim/image/logo.png" alt="Logo" height="50">
+                        </div>
+                        <div class="logo-text">
+                            <h1>Logistics Maritime</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div class="register-form">
+                    <h2>Buat Akun Baru</h2>
+                    <p class="form-subtitle">Lengkapi informasi di bawah untuk membuat akun</p>
+
                     <?php if ($error): ?>
                         <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
                     <?php endif; ?>
-                    
                     <?php if ($success): ?>
                         <div class="alert alert-success"><?php echo htmlspecialchars($success); ?></div>
                     <?php endif; ?>
-                    
-                    <form method="POST" action="" class="needs-validation" novalidate>
-                        <div class="form-group mb-3">
+
+                    <form method="POST" action="" class="auth-form" novalidate>
+                        <div class="form-group">
+                            <label for="full_name">Nama Lengkap</label>
+                            <input type="text" id="full_name" name="full_name" placeholder="Nama lengkap" required value="<?php echo htmlspecialchars($_POST['full_name'] ?? ''); ?>">
+                        </div>
+                        <div class="form-group">
                             <label for="username">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                            <div class="invalid-feedback">Please enter a username</div>
+                            <input type="text" id="username" name="username" placeholder="Username" required value="<?php echo htmlspecialchars($_POST['username'] ?? ''); ?>">
                         </div>
-                        
-                        <div class="form-group mb-3">
+                        <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                            <div class="invalid-feedback">Please enter a valid email address</div>
+                            <input type="email" id="email" name="email" placeholder="Email" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
                         </div>
-                        
-                        <div class="form-group mb-3">
-                            <label for="full_name">Full Name</label>
-                            <input type="text" class="form-control" id="full_name" name="full_name" required>
-                            <div class="invalid-feedback">Please enter your full name</div>
-                        </div>
-                        
-                        <div class="form-group mb-3">
+                        <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required minlength="8">
-                            <div class="invalid-feedback">Password must be at least 8 characters long</div>
+                            <input type="password" id="password" name="password" placeholder="Password" required minlength="8">
                         </div>
-                        
-                        <div class="form-group mb-3">
-                            <label for="confirm_password">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
-                            <div class="invalid-feedback">Please confirm your password</div>
+                        <div class="form-group">
+                            <label for="confirm_password">Konfirmasi Password</label>
+                            <input type="password" id="confirm_password" name="confirm_password" placeholder="Konfirmasi Password" required>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" class="btn-register">Daftar Sekarang</button>
                     </form>
-                    
-                    <div class="mt-3">
-                        <p>Already have an account? <a href="login.php">Login here</a></p>
+                    <div class="login-link">
+                        <p>Sudah punya akun? <a href="login.php">Masuk di sini</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<script>
-// Form validation
-(function() {
-    'use strict';
-    window.addEventListener('load', function() {
-        var forms = document.getElementsByClassName('needs-validation');
-        Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-    }, false);
-})();
-
-// Password confirmation validation
-document.getElementById('confirm_password').addEventListener('input', function() {
-    if (this.value !== document.getElementById('password').value) {
-        this.setCustomValidity('Passwords do not match');
-    } else {
-        this.setCustomValidity('');
-    }
-});
-</script>
-
-<?php require_once 'includes/footer.php'; ?> 
+    <script>
+    // Password confirmation validation
+    document.getElementById('confirm_password').addEventListener('input', function() {
+        if (this.value !== document.getElementById('password').value) {
+            this.setCustomValidity('Passwords do not match');
+        } else {
+            this.setCustomValidity('');
+        }
+    });
+    </script>
+</body>
+</html>

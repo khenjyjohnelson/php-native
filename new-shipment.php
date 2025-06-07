@@ -2,6 +2,9 @@
 require_once 'config/database.php';
 require_once 'config/session.php';
 
+// Add this line to initialize $pdo
+$pdo = Database::getInstance()->getConnection();
+
 // Require login to access
 requireLogin();
 
