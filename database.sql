@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `logistik_maritim`
+-- Database: `others_rita-poltek_logistik`
 --
 
 -- --------------------------------------------------------
