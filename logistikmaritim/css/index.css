@@ -595,3 +595,37 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    /* ...other styles... */
+}
+
+/* Show mobile menu only when active */
+.mobile-menu.active {
+    display: block;
+}
+
+/* Responsive: Show mobile menu button and menu only on small screens */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+    .nav-menu {
+        display: none;
+    }
+    .mobile-menu {
+        display: none;
+    }
+    .mobile-menu.active {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-menu {
+        display: none !important;
+    }
+}

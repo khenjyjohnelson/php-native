@@ -12,7 +12,7 @@ $error = '';
 $shipment_id = $_GET['id'] ?? null;
 
 if (!$shipment_id) {
-    header('Location: /imk/dashboard.php');
+    header('Location: /me/php-native/dashboard.php');
     exit();
 }
 
@@ -28,7 +28,7 @@ $stmt->execute([$shipment_id, $user['id']]);
 $shipment = $stmt->fetch();
 
 if (!$shipment) {
-    header('Location: /imk/dashboard.php');
+    header('Location: /me/php-native/dashboard.php');
     exit();
 }
 
@@ -44,81 +44,97 @@ $tracking_history = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Shipment - Logistics Maritime</title>
-    <link rel="stylesheet" href="/imk/logistikmaritim/css/index.css">
+    <link rel="stylesheet" href="/me/php-native/logistikmaritim/css/index.css">
     <style>
         .view-shipment-container {
             max-width: 1000px;
             margin: 20px auto;
             padding: 20px;
         }
+
         .shipment-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
+
         .status-badge {
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 0.9em;
         }
+
         .status-pending {
             background: #ffd700;
             color: #000;
         }
+
         .status-in-transit {
             background: #007bff;
             color: white;
         }
+
         .status-delivered {
             background: #28a745;
             color: white;
         }
+
         .status-cancelled {
             background: #dc3545;
             color: white;
         }
+
         .shipment-details {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
         }
+
         .detail-row {
             display: grid;
             grid-template-columns: 150px 1fr;
             margin-bottom: 10px;
         }
+
         .detail-label {
             font-weight: bold;
         }
+
         .items-table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
+
         .items-table th,
         .items-table td {
             padding: 12px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
+
         .items-table th {
             background-color: #f8f9fa;
             font-weight: bold;
         }
+
         .tracking-timeline {
             margin-top: 20px;
         }
+
         .timeline-item {
             position: relative;
             padding-left: 30px;
             margin-bottom: 20px;
         }
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -128,6 +144,7 @@ $tracking_history = $stmt->fetchAll();
             width: 2px;
             background: #ddd;
         }
+
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -138,10 +155,12 @@ $tracking_history = $stmt->fetchAll();
             border-radius: 50%;
             background: #007bff;
         }
+
         .timeline-date {
             font-size: 0.9em;
             color: #666;
         }
+
         .action-btn {
             padding: 8px 15px;
             border: none;
@@ -150,38 +169,41 @@ $tracking_history = $stmt->fetchAll();
             text-decoration: none;
             margin-right: 10px;
         }
+
         .edit-btn {
             background: #ffc107;
             color: #000;
         }
+
         .back-btn {
             background: #6c757d;
             color: white;
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
             <div class="logo">
                 <div class="logo-icon">
-                    <img src="/imk/logistikmaritim/image/logo.png" alt="logo" />
+                    <img src="/me/php-native/logistikmaritim/image/logo.png" alt="logo" />
                 </div>
                 <span>Logistik Maritime</span>
             </div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="/imk/index.php">Beranda</a></li>
-                    <li><a href="/imk/dashboard.php">Dashboard</a></li>
-                    <li><a href="/imk/logistikmaritim/html/informasi.php">Jadwal Pengiriman</a></li>
-                    <li><a href="/imk/logistikmaritim/html/kontak.php">Kontak Kami</a></li>
+                    <li><a href="/me/php-native/index.php">Beranda</a></li>
+                    <li><a href="/me/php-native/dashboard.php">Dashboard</a></li>
+                    <li><a href="/me/php-native/logistikmaritim/html/informasi.html">Jadwal Pengiriman</a></li>
+                    <li><a href="/me/php-native/logistikmaritim/html/kontak.html">Kontak Kami</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
                 <div class="user-menu">
                     <span>Welcome, <?php echo htmlspecialchars($user['name']); ?></span>
-                    <a href="/imk/logout.php" class="btn-logout">Logout</a>
+                    <a href="/me/php-native/logout.php" class="btn-logout">Logout</a>
                 </div>
             </div>
         </div>
@@ -191,8 +213,8 @@ $tracking_history = $stmt->fetchAll();
         <div class="shipment-header">
             <h2>Shipment Details</h2>
             <div>
-                <a href="/imk/edit-shipment.php?id=<?php echo $shipment['id']; ?>" class="action-btn edit-btn">Edit Shipment</a>
-                <a href="/imk/dashboard.php" class="action-btn back-btn">Back to Dashboard</a>
+                <a href="/me/php-native/edit-shipment.php?id=<?php echo $shipment['id']; ?>" class="action-btn edit-btn">Edit Shipment</a>
+                <a href="/me/php-native/dashboard.php" class="action-btn back-btn">Back to Dashboard</a>
             </div>
         </div>
 
@@ -262,4 +284,5 @@ $tracking_history = $stmt->fetchAll();
         </div>
     </div>
 </body>
-</html> 
+
+</html>

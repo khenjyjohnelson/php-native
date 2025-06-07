@@ -1,441 +1,482 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulir Lamaran - Logistics Maritime</title>
-    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/form.css" />
     <style>
-        /* Auth Buttons Styles */
+      /* Auth Buttons Styles */
+      .auth-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn-login,
+      .btn-signup {
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login {
+        color: #2c5aa0;
+        border: 2px solid #2c5aa0;
+        background: transparent;
+      }
+
+      .btn-login:hover {
+        background: #2c5aa0;
+        color: white;
+      }
+
+      .btn-signup {
+        background: #2c5aa0;
+        color: white;
+        border: 2px solid #2c5aa0;
+      }
+
+      .btn-signup:hover {
+        background: #1e3f73;
+        border-color: #1e3f73;
+      }
+
+      /* Mobile Auth Buttons */
+      .mobile-auth-buttons {
+        display: flex;
+        gap: 10px;
+        padding: 15px 0;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+      }
+
+      .btn-login-mobile,
+      .btn-signup-mobile {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login-mobile {
+        color: #2c5aa0;
+        border: 2px solid #2c5aa0;
+        background: transparent;
+      }
+
+      .btn-signup-mobile {
+        background: #2c5aa0;
+        color: white;
+        border: 2px solid #2c5aa0;
+      }
+
+      /* Mobile Menu Styles */
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .mobile-nav-menu li {
+        border-bottom: 1px solid #eee;
+      }
+
+      .mobile-nav-menu a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .mobile-dropdown-menu {
+        background: #f8f9fa;
+        display: none;
+      }
+
+      .mobile-dropdown.active .mobile-dropdown-menu {
+        display: block;
+      }
+
+      .mobile-dropdown-menu a {
+        padding-left: 40px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
         .auth-buttons {
-            display: flex;
-            gap: 10px;
-            align-items: center;
+          display: none;
         }
 
-        .btn-login, .btn-signup {
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+        .nav-menu {
+          display: none;
         }
 
-        .btn-login {
-            color: #2c5aa0;
-            border: 2px solid #2c5aa0;
-            background: transparent;
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-menu-btn {
+          display: none;
         }
 
-        .btn-login:hover {
-            background: #2c5aa0;
-            color: white;
-        }
-
-        .btn-signup {
-            background: #2c5aa0;
-            color: white;
-            border: 2px solid #2c5aa0;
-        }
-
-        .btn-signup:hover {
-            background: #1e3f73;
-            border-color: #1e3f73;
-        }
-
-        /* Mobile Auth Buttons */
-        .mobile-auth-buttons {
-            display: flex;
-            gap: 10px;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-            margin-top: 10px;
-        }
-
-        .btn-login-mobile, .btn-signup-mobile {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn-login-mobile {
-            color: #2c5aa0;
-            border: 2px solid #2c5aa0;
-            background: transparent;
-        }
-
-        .btn-signup-mobile {
-            background: #2c5aa0;
-            color: white;
-            border: 2px solid #2c5aa0;
-        }
-
-        /* Mobile Menu Styles */
         .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
+          display: none !important;
         }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-nav-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-nav-menu li {
-            border-bottom: 1px solid #eee;
-        }
-
-        .mobile-nav-menu a {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .mobile-dropdown-menu {
-            background: #f8f9fa;
-            display: none;
-        }
-
-        .mobile-dropdown.active .mobile-dropdown-menu {
-            display: block;
-        }
-
-        .mobile-dropdown-menu a {
-            padding-left: 40px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .auth-buttons {
-                display: none;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .mobile-menu-btn {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: none !important;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <img src="../image/logo.png" alt="Logo">
-                </div>
-                <span>Logistics Maritime</span>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="../../index.html">Beranda</a></li>
-                    <li class="dropdown">
-                        <a href="#tentang" class="dropdown-toggle">
-                            Tentang Kami
-                            <span class="dropdown-arrow">▼</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="tentang.html">Tentang Perusahaan</a></li>
-                            <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                            <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
-                            <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
-                            <li><a href="informasi.html">Informasi Pengiriman</a></li>
-                            <li><a href="karir.html">Karir</a></li>
-                            <li><a href="tim.html">Tim</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="informasi.html">Jadwal Pengiriman</a></li>
-                    <li><a href="kontak.html">Kontak Kami</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Auth Buttons -->
-            <div class="auth-buttons">
-                <a href="../../login.html" class="btn-login">Masuk</a>
-                <a href="../../register.html" class="btn-signup">Daftar</a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="nav-container">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../image/logo.png" alt="Logo" />
+          </div>
+          <span>Logistics Maritime</span>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <ul class="mobile-nav-menu">
-                <li><a href="../../index.html">Beranda</a></li>
-                <li class="mobile-dropdown">
-                    <a href="#tentang" class="mobile-dropdown-toggle">
-                        Tentang Kami
-                        <span class="mobile-dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="mobile-dropdown-menu">
-                        <li><a href="tentang.html">Tentang Perusahaan</a></li>
-                        <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                        <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
-                        <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
-                        <li><a href="informasi.html">Informasi Pengiriman</a></li>
-                        <li><a href="karir.html">Karir</a></li>
-                        <li><a href="tim.html">Tim</a></li>
-                    </ul>
-                </li>
-                <li><a href="informasi.html">Jadwal Pengiriman</a></li>
-                <li><a href="kontak.html">Kontak Kami</a></li>
-                <li class="mobile-auth-buttons">
-                    <a href="../../login.html" class="btn-login-mobile">Masuk</a>
-                    <a href="../../register.html" class="btn-signup-mobile">Daftar</a>
-                </li>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="../../index.php">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#tentang" class="dropdown-toggle">
+                Tentang Kami
+                <span class="dropdown-arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="tentang.html">Tentang Perusahaan</a></li>
+                <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
+                <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
+                <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
+                <li><a href="informasi.html">Informasi Pengiriman</a></li>
+                <li><a href="karir.html">Karir</a></li>
+                <li><a href="tim.html">Tim</a></li>
+              </ul>
+            </li>
+            <li><a href="informasi.html">Jadwal Pengiriman</a></li>
+            <li><a href="kontak.html">Kontak Kami</a></li>
+          </ul>
+        </nav>
+
+        <!-- Auth Buttons -->
+        <div class="auth-buttons">
+          <a href="../../login.html" class="btn-login">Masuk</a>
+          <a href="../../register.html" class="btn-signup">Daftar</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu">
+        <ul class="mobile-nav-menu">
+          <li><a href="../../index.php">Beranda</a></li>
+          <li class="mobile-dropdown">
+            <a href="#tentang" class="mobile-dropdown-toggle">
+              Tentang Kami
+              <span class="mobile-dropdown-arrow">▼</span>
+            </a>
+            <ul class="mobile-dropdown-menu">
+              <li><a href="tentang.html">Tentang Perusahaan</a></li>
+              <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
+              <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
+              <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
+              <li><a href="informasi.html">Informasi Pengiriman</a></li>
+              <li><a href="karir.html">Karir</a></li>
+              <li><a href="tim.html">Tim</a></li>
             </ul>
-        </div>
+          </li>
+          <li><a href="informasi.html">Jadwal Pengiriman</a></li>
+          <li><a href="kontak.html">Kontak Kami</a></li>
+          <li class="mobile-auth-buttons">
+            <a href="../../login.html" class="btn-login-mobile">Masuk</a>
+            <a href="../../register.html" class="btn-signup-mobile">Daftar</a>
+          </li>
+        </ul>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1>Bergabunglah Bersama Kami</h1>
-                <p>Temukan peluang dan tumbuh bersama kami di industri logistik</p>
-            </div>
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>Bergabunglah Bersama Kami</h1>
+          <p>Temukan peluang dan tumbuh bersama kami di industri logistik</p>
         </div>
+      </div>
     </section>
 
     <!-- Application Form Section -->
     <section class="application-section">
-        <div class="application-container">
-            <div class="form-wrapper">
-                <h2>Formulir Lamaran Kerja</h2>
-                <p>Silahkan lengkapi formulir dibawah ini untuk melamar posisi yang tersedia.</p>
-                
-                <form class="application-form">
-                    <div class="form-group">
-                        <label for="nama">Nama Lengkap:</label>
-                        <input type="text" id="nama" name="nama" placeholder="Masukkan Nama Lengkap Anda" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Nomor Handphone:</label>
-                        <input type="tel" id="phone" name="phone" placeholder="08XXXXXXXXX" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="position">Pekerjaan yang dilamar:</label>
-                        <div class="select-wrapper">
-                            <select id="position" name="position" required>
-                                <option value="" disabled selected>Pilih Posisi</option>
-                                <option value="manajer-logistik">Manajer Logistik Maritim</option>
-                                <option value="operator-crane">Operator Crane Pelabuhan</option>
-                                <option value="supply-chain">Supply Chain Analyst</option>
-                                <option value="marketing">Marketing Staff</option>
-                                <option value="dokumentasi">Dokumentasi Logistik</option>
-                                <option value="perencana-rute">Perencana Rute Kapal</option>
-                            </select>
-                            <div class="select-arrow">▼</div>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="resume">Resume:</label>
-                        <div class="file-upload">
-                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                            <label for="resume" class="file-label">
-                                <span class="file-text">Klik atau seret CV Anda di sini</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">Lamar Sekarang</button>
-                </form>
+      <div class="application-container">
+        <div class="form-wrapper">
+          <h2>Formulir Lamaran Kerja</h2>
+          <p>
+            Silahkan lengkapi formulir dibawah ini untuk melamar posisi yang
+            tersedia.
+          </p>
+
+          <form class="application-form">
+            <div class="form-group">
+              <label for="nama">Nama Lengkap:</label>
+              <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Masukkan Nama Lengkap Anda"
+                required
+              />
             </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="contoh@email.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Nomor Handphone:</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="08XXXXXXXXX"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="position">Pekerjaan yang dilamar:</label>
+              <div class="select-wrapper">
+                <select id="position" name="position" required>
+                  <option value="" disabled selected>Pilih Posisi</option>
+                  <option value="manajer-logistik">
+                    Manajer Logistik Maritim
+                  </option>
+                  <option value="operator-crane">
+                    Operator Crane Pelabuhan
+                  </option>
+                  <option value="supply-chain">Supply Chain Analyst</option>
+                  <option value="marketing">Marketing Staff</option>
+                  <option value="dokumentasi">Dokumentasi Logistik</option>
+                  <option value="perencana-rute">Perencana Rute Kapal</option>
+                </select>
+                <div class="select-arrow">▼</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="resume">Resume:</label>
+              <div class="file-upload">
+                <input
+                  type="file"
+                  id="resume"
+                  name="resume"
+                  accept=".pdf,.doc,.docx"
+                  required
+                />
+                <label for="resume" class="file-label">
+                  <span class="file-text">Klik atau seret CV Anda di sini</span>
+                </label>
+              </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Lamar Sekarang</button>
+          </form>
         </div>
+      </div>
     </section>
 
-      <!-- Footer -->
-      <footer class="footer" id="kontak">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <img src="../image/logo.png" alt="logo" />
-                    </div>
-                    <div>
-                        <h3>Logistics Maritime</h3>
-                        <p>Mengirim barang dengan efisien, tepat, dan profesional</p>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="footer" id="kontak">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <img src="../image/logo.png" alt="logo" />
             </div>
-            
-            <div class="footer-section">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="../../index.html">Beranda</a></li>
-                    <li><a href="tentang.html">Tentang Perusahaan</a></li>
-                    <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                    <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
-                    <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
-                    <li><a href="informasi.html">Informasi Pengiriman</a></li>
-                    <li><a href="karir.html">Karir</a></li>
-                    <li><a href="tim.html">Tim</a></li>
-                </ul>
+            <div>
+              <h3>Logistics Maritime</h3>
+              <p>Mengirim barang dengan efisien, tepat, dan profesional</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Kontak Kami</h4>
-                <p><strong>Kantor Pusat</strong><br>
-                Jalan Pelabuhan Gang Pantai Indah No 72</p>
-                
-                <div class="social-icons">
-                    <a href="#" class="social-icon">
-                        <img src="../image/wa.png" alt="WhatsApp">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/ig.png" alt="Instagram">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/fb.png" alt="Facebook">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/tt.png" alt="TikTok">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/tw.png" alt="Twitter">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/ld.png" alt="LinkedIn">
-                    </a>
-                </div>
-                
-                <p><strong>Telepon Pusat</strong><br>
-                +6212-3456-7810</p>
-                
-                <p><strong>Email</strong><br>
-                logisticmaritime@gmail.com</p>
-            </div>
+          </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>© 2025 Logistics Maritime. All rights reserved</p>
+
+        <div class="footer-section">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="../../index.php">Beranda</a></li>
+            <li><a href="tentang.html">Tentang Perusahaan</a></li>
+            <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
+            <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
+            <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
+            <li><a href="informasi.html">Informasi Pengiriman</a></li>
+            <li><a href="karir.html">Karir</a></li>
+            <li><a href="tim.html">Tim</a></li>
+          </ul>
         </div>
+
+        <div class="footer-section">
+          <h4>Kontak Kami</h4>
+          <p>
+            <strong>Kantor Pusat</strong><br />
+            Jalan Pelabuhan Gang Pantai Indah No 72
+          </p>
+
+          <div class="social-icons">
+            <a href="#" class="social-icon">
+              <img src="../image/wa.png" alt="WhatsApp" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/ig.png" alt="Instagram" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/fb.png" alt="Facebook" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/tt.png" alt="TikTok" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/tw.png" alt="Twitter" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/ld.png" alt="LinkedIn" />
+            </a>
+          </div>
+
+          <p>
+            <strong>Telepon Pusat</strong><br />
+            +6212-3456-7810
+          </p>
+
+          <p>
+            <strong>Email</strong><br />
+            logisticmaritime@gmail.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Logistics Maritime. All rights reserved</p>
+      </div>
     </footer>
 
     <script>
-        // Animation-only JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            // Dropdown animation
-            const dropdown = document.querySelector('.dropdown');
-            const dropdownToggle = document.querySelector('.dropdown-toggle');
+      // Animation-only JavaScript
+      document.addEventListener('DOMContentLoaded', function () {
+        // Dropdown animation
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
 
-            if (dropdown && dropdownToggle) {
-                dropdownToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                });
+        if (dropdown && dropdownToggle) {
+          dropdownToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+          });
 
-                document.addEventListener('click', function(e) {
-                    if (!dropdown.contains(e.target)) {
-                        dropdown.classList.remove('active');
-                    }
-                });
+          document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('active');
             }
+          });
+        }
 
-            // Mobile menu animation
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenuBtn.classList.toggle('active');
-                    mobileMenu.classList.toggle('active');
-                });
-            }
+        // Mobile menu animation
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
 
-            // Mobile dropdown animation
-            const mobileDropdown = document.querySelector('.mobile-dropdown');
-            const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
-            
-            if (mobileDropdown && mobileDropdownToggle) {
-                mobileDropdownToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    mobileDropdown.classList.toggle('active');
-                });
-            }
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener('click', function () {
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+          });
+        }
 
-            // Form input focus animations
-            const formInputs = document.querySelectorAll('input, select');
-            formInputs.forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.style.transform = 'scale(1.02)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-                
-                input.addEventListener('blur', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            });
+        // Mobile dropdown animation
+        const mobileDropdown = document.querySelector('.mobile-dropdown');
+        const mobileDropdownToggle = document.querySelector(
+          '.mobile-dropdown-toggle'
+        );
 
-            // Submit button hover animation
-            const submitBtn = document.querySelector('.submit-btn');
-            if (submitBtn) {
-                submitBtn.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-3px)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-                
-                submitBtn.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            }
+        if (mobileDropdown && mobileDropdownToggle) {
+          mobileDropdownToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            mobileDropdown.classList.toggle('active');
+          });
+        }
 
-            // File upload area hover animation
-            const fileLabel = document.querySelector('.file-label');
-            if (fileLabel) {
-                fileLabel.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.02)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-                
-                fileLabel.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            }
+        // Form input focus animations
+        const formInputs = document.querySelectorAll('input, select');
+        formInputs.forEach(input => {
+          input.addEventListener('focus', function () {
+            this.style.transform = 'scale(1.02)';
+            this.style.transition = 'transform 0.3s ease';
+          });
+
+          input.addEventListener('blur', function () {
+            this.style.transform = 'scale(1)';
+          });
         });
+
+        // Submit button hover animation
+        const submitBtn = document.querySelector('.submit-btn');
+        if (submitBtn) {
+          submitBtn.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-3px)';
+            this.style.transition = 'transform 0.3s ease';
+          });
+
+          submitBtn.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+          });
+        }
+
+        // File upload area hover animation
+        const fileLabel = document.querySelector('.file-label');
+        if (fileLabel) {
+          fileLabel.addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.02)';
+            this.style.transition = 'transform 0.3s ease';
+          });
+
+          fileLabel.addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1)';
+          });
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

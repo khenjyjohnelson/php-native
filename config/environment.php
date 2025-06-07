@@ -42,7 +42,7 @@ $config = [
         'error_reporting' => E_ALL & ~E_DEPRECATED & ~E_STRICT,
         'database' => [
             'host' => 'localhost',
-            'name' => 'logistik_maritim',
+            'name' => 'others_rita-poltek_logistik',
             'user' => 'production_user',
             'pass' => 'production_password',
             'charset' => 'utf8mb4'
@@ -107,52 +107,62 @@ define('DEBUG_MODE', $env_config['debug']);
 define('MAINTENANCE_MODE', $env_config['maintenance']);
 
 // Environment helper functions
-function is_development() {
+function is_development()
+{
     return ENVIRONMENT === 'development';
 }
 
-function is_production() {
+function is_production()
+{
     return ENVIRONMENT === 'production';
 }
 
-function get_setting($key, $default = null) {
+function get_setting($key, $default = null)
+{
     global $env_config;
     return $env_config[$key] ?? $default;
 }
 
-function is_maintenance_mode() {
+function is_maintenance_mode()
+{
     return MAINTENANCE_MODE;
 }
 
-function is_debug_mode() {
+function is_debug_mode()
+{
     return DEBUG_MODE;
 }
 
 // Function to get environment
-function get_environment() {
+function get_environment()
+{
     return ENVIRONMENT;
 }
 
 // Function to get database setting
-function get_database_setting($key, $default = null) {
+function get_database_setting($key, $default = null)
+{
     global $env_config;
     return $env_config['database'][$key] ?? $default;
 }
 
 // Function to get session setting
-function get_session_setting($key, $default = null) {
+function get_session_setting($key, $default = null)
+{
     global $env_config;
     return $env_config['session'][$key] ?? $default;
 }
 
 // Function to get cache setting
-function get_cache_setting($key, $default = null) {
+function get_cache_setting($key, $default = null)
+{
     global $env_config;
     return $env_config['cache'][$key] ?? $default;
 }
 
 // Function to get logging setting
-function get_logging_setting($key, $default = null) {
+function get_logging_setting($key, $default = null)
+{
     global $env_config;
     return $env_config['logging'][$key] ?? $default;
-} 
+}

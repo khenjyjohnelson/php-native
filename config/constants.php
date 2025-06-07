@@ -4,7 +4,7 @@
 // Application information
 define('APP_NAME', 'Logistik Maritim');
 define('APP_VERSION', '1.0.0');
-define('APP_URL', 'http://localhost/imk');
+define('APP_URL', 'http://localhost/me/php-native');
 define('APP_ROOT', dirname(__DIR__));
 
 // File paths

@@ -1,11 +1,13 @@
 # Database Documentation
 
 ## Overview
-The system uses MySQL database with the name `logistik_maritim`. This document provides detailed information about the database structure, tables, and relationships.
+
+The system uses MySQL database with the name `others_rita-poltek_logistik`. This document provides detailed information about the database structure, tables, and relationships.
 
 ## Database Schema
 
 ### Users Table
+
 ```sql
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -21,6 +23,7 @@ CREATE TABLE users (
 ```
 
 ### Shipments Table
+
 ```sql
 CREATE TABLE shipments (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -38,6 +41,7 @@ CREATE TABLE shipments (
 ```
 
 ### Documents Table
+
 ```sql
 CREATE TABLE documents (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -52,21 +56,25 @@ CREATE TABLE documents (
 ## Table Relationships
 
 ### One-to-Many Relationships
+
 - Users to Shipments (One user can have multiple shipments)
 - Shipments to Documents (One shipment can have multiple documents)
 
 ## Indexes
 
 ### Primary Indexes
+
 - users.id
 - shipments.id
 - documents.id
 
 ### Foreign Key Indexes
+
 - shipments.user_id
 - documents.shipment_id
 
 ### Performance Indexes
+
 - users.email
 - shipments.status
 - shipments.created_at
@@ -74,6 +82,7 @@ CREATE TABLE documents (
 ## Data Types
 
 ### Common Data Types
+
 - INT: For IDs and numeric values
 - VARCHAR: For text fields
 - DECIMAL: For precise numeric values
@@ -83,11 +92,13 @@ CREATE TABLE documents (
 ## Backup and Recovery
 
 ### Backup Procedures
+
 1. Regular full database backups
 2. Incremental backups for changes
 3. Transaction log backups
 
 ### Recovery Procedures
+
 1. Full database restore
 2. Point-in-time recovery
 3. Selective table restore
@@ -95,11 +106,13 @@ CREATE TABLE documents (
 ## Security
 
 ### Access Control
+
 - Database user permissions
 - Role-based access
 - IP restrictions
 
 ### Data Protection
+
 - Password hashing
 - Sensitive data encryption
 - Regular security audits
@@ -107,11 +120,13 @@ CREATE TABLE documents (
 ## Maintenance
 
 ### Optimization
+
 - Regular index maintenance
 - Table optimization
 - Query optimization
 
 ### Monitoring
+
 - Performance monitoring
 - Space usage tracking
 - Query performance analysis
@@ -119,11 +134,13 @@ CREATE TABLE documents (
 ## Best Practices
 
 ### Database Design
+
 - Normalized structure
 - Proper indexing
 - Consistent naming conventions
 
 ### Performance
+
 - Optimized queries
 - Regular maintenance
 - Proper indexing strategy
@@ -131,13 +148,15 @@ CREATE TABLE documents (
 ## Troubleshooting
 
 ### Common Issues
+
 1. Connection problems
 2. Performance issues
 3. Data integrity
 4. Backup failures
 
 ### Solutions
+
 1. Check connection settings
 2. Optimize queries
 3. Verify data consistency
-4. Test backup procedures 
+4. Test backup procedures

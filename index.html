@@ -1,487 +1,607 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logistics Maritime</title>
-    <link rel="stylesheet" href="logistikmaritim/css/index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="logistikmaritim/css/index.css" />
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <img src="logistikmaritim/image/logo.png" alt="logo" />
-                </div>
-                <span>Logistik Maritime</span>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Beranda</a></li>
-                    <li class="dropdown">
-                        <a href="#tentang" class="dropdown-toggle">
-                            Tentang Kami
-                            <span class="dropdown-arrow">▼</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="logistikmaritim/html/tentang.html">Tentang Perusahaan</a></li>
-                            <li><a href="logistikmaritim/html/fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                            <li><a href="logistikmaritim/html/jaminan.html">Jaminan Pelayanan</a></li>
-                            <li><a href="logistikmaritim/html/syarat.html">Syarat dan Ketentuan</a></li>
-                            <li><a href="logistikmaritim/html/informasi.html">Informasi Pengiriman</a></li>
-                            <li><a href="logistikmaritim/html/karir.html">Karir</a></li>
-                            <li><a href="logistikmaritim/html/tim.html">Tim</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="logistikmaritim/html/informasi.html">Jadwal Pengiriman</a></li>
-                    <li><a href="logistikmaritim/html/kontak.html">Kontak Kami</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Auth Buttons -->
-            <div class="auth-buttons">
-                <a href="logistikmaritim/login/login.html" class="btn-login">Masuk</a>
-                <a href="logistikmaritim/login/register.html" class="btn-signup">Daftar</a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <button class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+      <div class="nav-container">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="logistikmaritim/image/logo.png" alt="logo" />
+          </div>
+          <span>Logistik Maritime</span>
+        </div>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.php">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#tentang" class="dropdown-toggle">
+                Tentang Kami
+                <span class="dropdown-arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="logistikmaritim/html/tentang.html"
+                    >Tentang Perusahaan</a
+                  >
+                </li>
+                <li>
+                  <a href="logistikmaritim/html/fasilitas.html"
+                    >Fasilitas dan Pelayanan</a
+                  >
+                </li>
+                <li>
+                  <a href="logistikmaritim/html/jaminan.html"
+                    >Jaminan Pelayanan</a
+                  >
+                </li>
+                <li>
+                  <a href="logistikmaritim/html/syarat.html"
+                    >Syarat dan Ketentuan</a
+                  >
+                </li>
+                <li>
+                  <a href="logistikmaritim/html/informasi.html"
+                    >Informasi Pengiriman</a
+                  >
+                </li>
+                <li><a href="logistikmaritim/html/karir.html">Karir</a></li>
+                <li><a href="logistikmaritim/html/tim.html">Tim</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="logistikmaritim/html/informasi.html"
+                >Jadwal Pengiriman</a
+              >
+            </li>
+            <li><a href="logistikmaritim/html/kontak.html">Kontak Kami</a></li>
+          </ul>
+        </nav>
+
+        <!-- Auth Buttons -->
+        <div class="auth-buttons">
+          <a href="logistikmaritim/login/login.html" class="btn-login">Masuk</a>
+          <a href="logistikmaritim/login/register.html" class="btn-signup"
+            >Daftar</a
+          >
         </div>
 
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <ul class="mobile-nav-menu">
-                <li><a href="index.html">Beranda</a></li>
-                <li class="mobile-dropdown">
-                    <a href="#tentang" class="mobile-dropdown-toggle">
-                        Tentang Kami
-                        <span class="dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="mobile-dropdown-menu">
-                        <li><a href="logistikmaritim/html/tentang.html">Tentang Perusahaan</a></li>
-                        <li><a href="logistikmaritim/html/fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                        <li><a href="logistikmaritim/html/jaminan.html">Jaminan Pelayanan</a></li>
-                        <li><a href="logistikmaritim/html/syarat.html">Syarat dan Ketentuan</a></li>
-                        <li><a href="logistikmaritim/html/informasi.html">Informasi Pengiriman</a></li>
-                        <li><a href="logistikmaritim/html/karir.html">Karir</a></li>
-                        <li><a href="logistikmaritim/html/tim.html">Tim</a></li>
-                    </ul>
-                </li>
-                <li><a href="logistikmaritim/html/informasi.html">Jadwal Pengiriman</a></li>
-                <li><a href="logistikmaritim/html/kontak.html">Kontak Kami</a></li>
-                <li class="mobile-auth-buttons">
-                    <a href="login.html" class="btn-login-mobile">Masuk</a>
-                    <a href="register.html" class="btn-signup-mobile">Daftar</a>
-                </li>
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu">
+        <ul class="mobile-nav-menu">
+          <li><a href="index.php">Beranda</a></li>
+          <li class="mobile-dropdown">
+            <a href="#tentang" class="mobile-dropdown-toggle">
+              Tentang Kami
+              <span class="dropdown-arrow">▼</span>
+            </a>
+            <ul class="mobile-dropdown-menu">
+              <li>
+                <a href="logistikmaritim/html/tentang.html"
+                  >Tentang Perusahaan</a
+                >
+              </li>
+              <li>
+                <a href="logistikmaritim/html/fasilitas.html"
+                  >Fasilitas dan Pelayanan</a
+                >
+              </li>
+              <li>
+                <a href="logistikmaritim/html/jaminan.html"
+                  >Jaminan Pelayanan</a
+                >
+              </li>
+              <li>
+                <a href="logistikmaritim/html/syarat.html"
+                  >Syarat dan Ketentuan</a
+                >
+              </li>
+              <li>
+                <a href="logistikmaritim/html/informasi.html"
+                  >Informasi Pengiriman</a
+                >
+              </li>
+              <li><a href="logistikmaritim/html/karir.html">Karir</a></li>
+              <li><a href="logistikmaritim/html/tim.html">Tim</a></li>
             </ul>
-        </div>
+          </li>
+          <li>
+            <a href="logistikmaritim/html/informasi.html">Jadwal Pengiriman</a>
+          </li>
+          <li><a href="logistikmaritim/html/kontak.html">Kontak Kami</a></li>
+          <li class="mobile-auth-buttons">
+            <a href="login.html" class="btn-login-mobile">Masuk</a>
+            <a href="register.html" class="btn-signup-mobile">Daftar</a>
+          </li>
+        </ul>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="beranda">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>LOGISTICS MARITIME</h1>
-                <p>Mewujudkan Kesuksesan Logistik Anda</p>
-                <a href="logistikmaritim/html/informasi.html" class="cta-button">
-                    Cek Pengiriman
-                </a>
-            </div>
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>LOGISTICS MARITIME</h1>
+          <p>Mewujudkan Kesuksesan Logistik Anda</p>
+          <a href="logistikmaritim/html/informasi.html" class="cta-button">
+            Cek Pengiriman
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Content Section -->
     <section class="content-section">
-        <div class="content-container">
-            <div class="content-item">
-                <div class="content-image">
-                    <img src="logistikmaritim/image/2.png" alt="Port Container" />
-                </div>
-                <div class="content-text">
-                    <h3>SEJARAH</h3>
-                    <p>Dari pelabuhan kecil hingga kami menghubungkan seluruh wilayah Indonesia dengan layanan logistik yang handal dan terpercaya. Dengan pengalaman puluhan tahun dalam industri maritim, kami telah membangun jaringan yang luas dan berpengalaman. Kami memastikan setiap pengiriman berjalan lancar, tepat waktu, dan sesuai standar tertinggi. Mulai dari pemulihan di pelabuhan hingga barang tiba di tujuan, sistem manajemen logistik kami menjaga keakuratan, kecepatan, dan keamanan dalam setiap tahap pengiriman barang melalui jalur laut di seluruh Indonesia.</p>
-                    <a href="logistikmaritim/html/tentang.html" class="selengkapnya-btn">Selengkapnya →</a>
-                </div>
-            </div>
-
-            <div class="content-item">
-                <div class="content-image">
-                    <img src="logistikmaritim/image/3.png" alt="Logistics Service" />
-                </div>
-                <div class="content-text">
-                    <h3>PELAYANAN</h3>
-                    <p>Kami menawarkan pelayanan kapal logistik dengan sistem penyimpanan yang mudah dan fleksibel, didukung oleh teknologi terdepan untuk memastikan efisiensi maksimal. Pengiriman dilakukan dengan tepat waktu, menggunakan kapal yang dilengkapi teknologi dan fasilitas bongkar muat modern. Kami juga menyediakan jaminan klaim yang jelas serta respon cepat terhadap permintaan dan kendala, guna memastikan kelancaran operasional dan kepuasan pelanggan di seluruh wilayah Indonesia.</p>
-                    <a href="logistikmaritim/html/fasilitas.html" class="selengkapnya-btn">Selengkapnya →</a>
-                </div>
-            </div>
+      <div class="content-container">
+        <div class="content-item">
+          <div class="content-image">
+            <img src="logistikmaritim/image/2.png" alt="Port Container" />
+          </div>
+          <div class="content-text">
+            <h3>SEJARAH</h3>
+            <p>
+              Dari pelabuhan kecil hingga kami menghubungkan seluruh wilayah
+              Indonesia dengan layanan logistik yang handal dan terpercaya.
+              Dengan pengalaman puluhan tahun dalam industri maritim, kami telah
+              membangun jaringan yang luas dan berpengalaman. Kami memastikan
+              setiap pengiriman berjalan lancar, tepat waktu, dan sesuai standar
+              tertinggi. Mulai dari pemulihan di pelabuhan hingga barang tiba di
+              tujuan, sistem manajemen logistik kami menjaga keakuratan,
+              kecepatan, dan keamanan dalam setiap tahap pengiriman barang
+              melalui jalur laut di seluruh Indonesia.
+            </p>
+            <a href="logistikmaritim/html/tentang.html" class="selengkapnya-btn"
+              >Selengkapnya →</a
+            >
+          </div>
         </div>
+
+        <div class="content-item">
+          <div class="content-image">
+            <img src="logistikmaritim/image/3.png" alt="Logistics Service" />
+          </div>
+          <div class="content-text">
+            <h3>PELAYANAN</h3>
+            <p>
+              Kami menawarkan pelayanan kapal logistik dengan sistem penyimpanan
+              yang mudah dan fleksibel, didukung oleh teknologi terdepan untuk
+              memastikan efisiensi maksimal. Pengiriman dilakukan dengan tepat
+              waktu, menggunakan kapal yang dilengkapi teknologi dan fasilitas
+              bongkar muat modern. Kami juga menyediakan jaminan klaim yang
+              jelas serta respon cepat terhadap permintaan dan kendala, guna
+              memastikan kelancaran operasional dan kepuasan pelanggan di
+              seluruh wilayah Indonesia.
+            </p>
+            <a
+              href="logistikmaritim/html/fasilitas.html"
+              class="selengkapnya-btn"
+              >Selengkapnya →</a
+            >
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Highlight Section -->
     <section class="highlight-section">
-        <div class="highlight-container">
-            <h2 class="highlight-title">HIGHLIGHT</h2>
-            <div class="highlight-grid">
-                <div class="highlight-card">
-                    <img src="logistikmaritim/image/4.png" alt="Visi Misi" />
-                    <h4>Visi & Misi</h4>
-                    <p>Menjadi leader logistik maritim terpercaya dengan visi untuk menghubungkan seluruh Indonesia melalui layanan pelayanan.</p>
-                    <a href="logistikmaritim/html/tentang.html" class="selengkapnya-btn1a">Selengkapnya →</a>
-                </div>
-                <div class="highlight-card">
-                    <img src="logistikmaritim/image/5.png" alt="Karir" />
-                    <h4>Karir</h4>
-                    <p>Bergabung dengan tim profesional kami di bidang logistik maritim. Kami menyediakan kesempatan karir yang menarik dengan lingkungan kerja yang dinamis dan pengembangan profesional.</p>
-                    <a href="logistikmaritim/html/karir.html" class="selengkapnya-btn1b">Selengkapnya →</a>
-                </div>
-                <div class="highlight-card">
-                    <img src="logistikmaritim/image/6.png" alt="Syarat Ketentuan" />
-                    <h4>Syarat & Ketentuan</h4>
-                    <p>Ketahui syarat dan ketentuan layanan logistik maritim kami untuk memastikan kelancaran dan keamanan dalam setiap transaksi pengiriman barang melalui jalur laut.</p>
-                    <a href="logistikmaritim/html/syarat.html" class="selengkapnya-btn1c">Selengkapnya →</a>
-                </div>
-            </div>
+      <div class="highlight-container">
+        <h2 class="highlight-title">HIGHLIGHT</h2>
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <img src="logistikmaritim/image/4.png" alt="Visi Misi" />
+            <h4>Visi & Misi</h4>
+            <p>
+              Menjadi leader logistik maritim terpercaya dengan visi untuk
+              menghubungkan seluruh Indonesia melalui layanan pelayanan.
+            </p>
+            <a
+              href="logistikmaritim/html/tentang.html"
+              class="selengkapnya-btn1a"
+              >Selengkapnya →</a
+            >
+          </div>
+          <div class="highlight-card">
+            <img src="logistikmaritim/image/5.png" alt="Karir" />
+            <h4>Karir</h4>
+            <p>
+              Bergabung dengan tim profesional kami di bidang logistik maritim.
+              Kami menyediakan kesempatan karir yang menarik dengan lingkungan
+              kerja yang dinamis dan pengembangan profesional.
+            </p>
+            <a href="logistikmaritim/html/karir.html" class="selengkapnya-btn1b"
+              >Selengkapnya →</a
+            >
+          </div>
+          <div class="highlight-card">
+            <img src="logistikmaritim/image/6.png" alt="Syarat Ketentuan" />
+            <h4>Syarat & Ketentuan</h4>
+            <p>
+              Ketahui syarat dan ketentuan layanan logistik maritim kami untuk
+              memastikan kelancaran dan keamanan dalam setiap transaksi
+              pengiriman barang melalui jalur laut.
+            </p>
+            <a
+              href="logistikmaritim/html/syarat.html"
+              class="selengkapnya-btn1c"
+              >Selengkapnya →</a
+            >
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Partners Section -->
     <section class="partners-section">
-        <div class="partners-container">
-            <h2 class="partners-title">MITRA</h2>
-            <p class="partners-subtitle">Kerja sama yang telah kami lakukan</p>
-            <div class="partners-grid">
-                <div class="partner-logo">
-                    <a href="https://www.asus.com/" target="_blank">
-                        <img src="logistikmaritim/image/asus.png" alt="ASUS" />
-                    </a>
-                </div>
-                <div class="partner-logo">
-                    <a href="https://www.shopee.com/" target="_blank">
-                        <img src="logistikmaritim/image/shoope.png" alt="Shopee" />
-                    </a>
-                </div>
-                <div class="partner-logo">
-                    <a href="https://www.komatsu.com/" target="_blank">
-                        <img src="logistikmaritim/image/komatsu.png" alt="Komatsu" />
-                    </a>
-                </div>
-                <div class="partner-logo">
-                    <a href="https://www.adidas.com/" target="_blank">
-                        <img src="logistikmaritim/image/adidas.png" alt="Adidas" />
-                    </a>
-                </div>
-                <div class="partner-logo">
-                    <a href="https://www.tokopedia.com/" target="_blank">
-                        <img src="logistikmaritim/image/tokopedia.png" alt="Tokopedia" />
-                    </a>
-                </div>
-                <div class="partner-logo">
-                    <a href="https://www.bukalapak.com/" target="_blank">
-                        <img src="logistikmaritim/image/bukalapak.png" alt="Bukalapak" />
-                    </a>
-                </div>
-                <div class="partner-logo">
-                    <a href="https://www.advan.id/" target="_blank">
-                        <img src="logistikmaritim/image/advan.png" alt="Advan" />
-                    </a>
-                </div>
-                <div class="partner-logo">
-                    <a href="https://www.iphone.com/" target="_blank">
-                        <img src="logistikmaritim/image/iphone.png" alt="iPhone" />
-                    </a>
-                </div>
-                <div class="partner-logo">
-                    <a href="https://www.yamaha.com/" target="_blank">
-                        <img src="logistikmaritim/image/yamaha.png" alt="Yamaha" />
-                    </a>
-                </div>
-            </div>
+      <div class="partners-container">
+        <h2 class="partners-title">MITRA</h2>
+        <p class="partners-subtitle">Kerja sama yang telah kami lakukan</p>
+        <div class="partners-grid">
+          <div class="partner-logo">
+            <a href="https://www.asus.com/" target="_blank">
+              <img src="logistikmaritim/image/asus.png" alt="ASUS" />
+            </a>
+          </div>
+          <div class="partner-logo">
+            <a href="https://www.shopee.com/" target="_blank">
+              <img src="logistikmaritim/image/shoope.png" alt="Shopee" />
+            </a>
+          </div>
+          <div class="partner-logo">
+            <a href="https://www.komatsu.com/" target="_blank">
+              <img src="logistikmaritim/image/komatsu.png" alt="Komatsu" />
+            </a>
+          </div>
+          <div class="partner-logo">
+            <a href="https://www.adidas.com/" target="_blank">
+              <img src="logistikmaritim/image/adidas.png" alt="Adidas" />
+            </a>
+          </div>
+          <div class="partner-logo">
+            <a href="https://www.tokopedia.com/" target="_blank">
+              <img src="logistikmaritim/image/tokopedia.png" alt="Tokopedia" />
+            </a>
+          </div>
+          <div class="partner-logo">
+            <a href="https://www.bukalapak.com/" target="_blank">
+              <img src="logistikmaritim/image/bukalapak.png" alt="Bukalapak" />
+            </a>
+          </div>
+          <div class="partner-logo">
+            <a href="https://www.advan.id/" target="_blank">
+              <img src="logistikmaritim/image/advan.png" alt="Advan" />
+            </a>
+          </div>
+          <div class="partner-logo">
+            <a href="https://www.iphone.com/" target="_blank">
+              <img src="logistikmaritim/image/iphone.png" alt="iPhone" />
+            </a>
+          </div>
+          <div class="partner-logo">
+            <a href="https://www.yamaha.com/" target="_blank">
+              <img src="logistikmaritim/image/yamaha.png" alt="Yamaha" />
+            </a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer" id="kontak">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <img src="logistikmaritim/image/logo.png" alt="logo" />
-                    </div>
-                    <div>
-                        <h3>Logistics Maritime</h3>
-                        <p>Mengirim barang dengan efisien, tepat, dan profesional</p>
-                    </div>
-                </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <img src="logistikmaritim/image/logo.png" alt="logo" />
             </div>
-            
-            <div class="footer-section">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="index.html">Beranda</a></li>
-                    <li><a href="logistikmaritim/html/tentang.html">Tentang Perusahaan</a></li>
-                    <li><a href="logistikmaritim/html/fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                    <li><a href="logistikmaritim/html/jaminan.html">Jaminan Pelayanan</a></li>
-                    <li><a href="logistikmaritim/html/syarat.html">Syarat dan Ketentuan</a></li>
-                    <li><a href="logistikmaritim/html/informasi.html">Informasi Pengiriman</a></li>
-                    <li><a href="logistikmaritim/html/karir.html">Karir</a></li>
-                    <li><a href="logistikmaritim/html/tim.html">Tim</a></li>
-                </ul>
+            <div>
+              <h3>Logistics Maritime</h3>
+              <p>Mengirim barang dengan efisien, tepat, dan profesional</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Kontak Kami</h4>
-                <p><strong>Kantor Pusat</strong><br>
-                Jalan Pelabuhan Gang Pantai Indah No 72</p>
-                
-                <div class="social-icons">
-                    <a href="#" class="social-icon">
-                        <img src="logistikmaritim/image/wa.png" alt="WhatsApp">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="logistikmaritim/image/ig.png" alt="Instagram">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="logistikmaritim/image/fb.png" alt="Facebook">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="logistikmaritim/image/tt.png" alt="TikTok">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="logistikmaritim/image/tw.png" alt="Twitter">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="logistikmaritim/image/ld.png" alt="LinkedIn">
-                    </a>
-                </div>
-                
-                <p><strong>Telepon Pusat</strong><br>
-                +6212-3456-7810</p>
-                
-                <p><strong>Email</strong><br>
-                logisticmaritime@gmail.com</p>
-            </div>
+          </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>© 2025 Logistics Maritime. All rights reserved</p>
+
+        <div class="footer-section">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="index.php">Beranda</a></li>
+            <li>
+              <a href="logistikmaritim/html/tentang.html">Tentang Perusahaan</a>
+            </li>
+            <li>
+              <a href="logistikmaritim/html/fasilitas.html"
+                >Fasilitas dan Pelayanan</a
+              >
+            </li>
+            <li>
+              <a href="logistikmaritim/html/jaminan.html">Jaminan Pelayanan</a>
+            </li>
+            <li>
+              <a href="logistikmaritim/html/syarat.html"
+                >Syarat dan Ketentuan</a
+              >
+            </li>
+            <li>
+              <a href="logistikmaritim/html/informasi.html"
+                >Informasi Pengiriman</a
+              >
+            </li>
+            <li><a href="logistikmaritim/html/karir.html">Karir</a></li>
+            <li><a href="logistikmaritim/html/tim.html">Tim</a></li>
+          </ul>
         </div>
+
+        <div class="footer-section">
+          <h4>Kontak Kami</h4>
+          <p>
+            <strong>Kantor Pusat</strong><br />
+            Jalan Pelabuhan Gang Pantai Indah No 72
+          </p>
+
+          <div class="social-icons">
+            <a href="#" class="social-icon">
+              <img src="logistikmaritim/image/wa.png" alt="WhatsApp" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="logistikmaritim/image/ig.png" alt="Instagram" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="logistikmaritim/image/fb.png" alt="Facebook" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="logistikmaritim/image/tt.png" alt="TikTok" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="logistikmaritim/image/tw.png" alt="Twitter" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="logistikmaritim/image/ld.png" alt="LinkedIn" />
+            </a>
+          </div>
+
+          <p>
+            <strong>Telepon Pusat</strong><br />
+            +6212-3456-7810
+          </p>
+
+          <p>
+            <strong>Email</strong><br />
+            logisticmaritime@gmail.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Logistics Maritime. All rights reserved</p>
+      </div>
     </footer>
 
     <script>
-        // Dropdown functionality (keeping this as it's UI animation/interaction)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Desktop dropdown
-            const dropdown = document.querySelector('.dropdown');
-            const dropdownToggle = document.querySelector('.dropdown-toggle');
+      // Dropdown functionality (keeping this as it's UI animation/interaction)
+      document.addEventListener('DOMContentLoaded', function () {
+        // Desktop dropdown
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
 
-            if (dropdown && dropdownToggle) {
-                dropdownToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                });
+        if (dropdown && dropdownToggle) {
+          dropdownToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+          });
 
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function(e) {
-                    if (!dropdown.contains(e.target)) {
-                        dropdown.classList.remove('active');
-                    }
-                });
+          // Close dropdown when clicking outside
+          document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('active');
             }
+          });
+        }
 
-            // Mobile menu functionality (keeping this as it's UI animation/interaction)
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenuBtn.classList.toggle('active');
-                    mobileMenu.classList.toggle('active');
-                });
-            }
+        // Mobile menu functionality (keeping this as it's UI animation/interaction)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
 
-            // Mobile dropdown (keeping this as it's UI animation/interaction)
-            const mobileDropdown = document.querySelector('.mobile-dropdown');
-            const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
-            
-            if (mobileDropdown && mobileDropdownToggle) {
-                mobileDropdownToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    mobileDropdown.classList.toggle('active');
-                });
-            }
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener('click', function () {
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+          });
+        }
 
-            // Highlight card hover effects (keeping this as it's animation)
-            const highlightCards = document.querySelectorAll('.highlight-card');
-            highlightCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
+        // Mobile dropdown (keeping this as it's UI animation/interaction)
+        const mobileDropdown = document.querySelector('.mobile-dropdown');
+        const mobileDropdownToggle = document.querySelector(
+          '.mobile-dropdown-toggle'
+        );
 
-            // Partner logo hover effects (keeping this as it's animation)
-            const partnerLogos = document.querySelectorAll('.partner-logo');
-            partnerLogos.forEach(logo => {
-                logo.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.1)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-                
-                logo.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            });
+        if (mobileDropdown && mobileDropdownToggle) {
+          mobileDropdownToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            mobileDropdown.classList.toggle('active');
+          });
+        }
+
+        // Highlight card hover effects (keeping this as it's animation)
+        const highlightCards = document.querySelectorAll('.highlight-card');
+        highlightCards.forEach(card => {
+          card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-10px)';
+            this.style.transition = 'transform 0.3s ease';
+          });
+
+          card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+          });
         });
+
+        // Partner logo hover effects (keeping this as it's animation)
+        const partnerLogos = document.querySelectorAll('.partner-logo');
+        partnerLogos.forEach(logo => {
+          logo.addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.1)';
+            this.style.transition = 'transform 0.3s ease';
+          });
+
+          logo.addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1)';
+          });
+        });
+      });
     </script>
 
     <style>
-        /* Auth Buttons Styles */
+      /* Auth Buttons Styles */
+      .auth-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn-login,
+      .btn-signup {
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login {
+        color: #2c5aa0;
+        border: 2px solid #2c5aa0;
+        background: transparent;
+      }
+
+      .btn-login:hover {
+        background: #2c5aa0;
+        color: white;
+      }
+
+      .btn-signup {
+        background: #2c5aa0;
+        color: white;
+        border: 2px solid #2c5aa0;
+      }
+
+      .btn-signup:hover {
+        background: #1e3f73;
+        border-color: #1e3f73;
+      }
+
+      /* Mobile Auth Buttons */
+      .mobile-auth-buttons {
+        display: flex;
+        gap: 10px;
+        padding: 15px 0;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+      }
+
+      .btn-login-mobile,
+      .btn-signup-mobile {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login-mobile {
+        color: #2c5aa0;
+        border: 2px solid #2c5aa0;
+        background: transparent;
+      }
+
+      .btn-signup-mobile {
+        background: #2c5aa0;
+        color: white;
+        border: 2px solid #2c5aa0;
+      }
+
+      /* Mobile Menu Styles */
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .mobile-nav-menu li {
+        border-bottom: 1px solid #eee;
+      }
+
+      .mobile-nav-menu a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .mobile-dropdown-menu {
+        background: #f8f9fa;
+        display: none;
+      }
+
+      .mobile-dropdown.active .mobile-dropdown-menu {
+        display: block;
+      }
+
+      .mobile-dropdown-menu a {
+        padding-left: 40px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
         .auth-buttons {
-            display: flex;
-            gap: 10px;
-            align-items: center;
+          display: none;
         }
 
-        .btn-login, .btn-signup {
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+        .nav-menu {
+          display: none;
         }
 
-        .btn-login {
-            color: #2c5aa0;
-            border: 2px solid #2c5aa0;
-            background: transparent;
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-menu-btn {
+          display: none;
         }
 
-        .btn-login:hover {
-            background: #2c5aa0;
-            color: white;
-        }
-
-        .btn-signup {
-            background: #2c5aa0;
-            color: white;
-            border: 2px solid #2c5aa0;
-        }
-
-        .btn-signup:hover {
-            background: #1e3f73;
-            border-color: #1e3f73;
-        }
-
-        /* Mobile Auth Buttons */
-        .mobile-auth-buttons {
-            display: flex;
-            gap: 10px;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-            margin-top: 10px;
-        }
-
-        .btn-login-mobile, .btn-signup-mobile {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn-login-mobile {
-            color: #2c5aa0;
-            border: 2px solid #2c5aa0;
-            background: transparent;
-        }
-
-        .btn-signup-mobile {
-            background: #2c5aa0;
-            color: white;
-            border: 2px solid #2c5aa0;
-        }
-
-        /* Mobile Menu Styles */
         .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
+          display: none !important;
         }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-nav-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-nav-menu li {
-            border-bottom: 1px solid #eee;
-        }
-
-        .mobile-nav-menu a {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .mobile-dropdown-menu {
-            background: #f8f9fa;
-            display: none;
-        }
-
-        .mobile-dropdown.active .mobile-dropdown-menu {
-            display: block;
-        }
-
-        .mobile-dropdown-menu a {
-            padding-left: 40px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .auth-buttons {
-                display: none;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .mobile-menu-btn {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: none !important;
-            }
-        }
+      }
     </style>
-</body>
+  </body>
 </html>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'config/database.php';
 require_once 'includes/functions.php';
 ?>
@@ -16,4 +15,4 @@ require_once 'includes/functions.php';
 </head>
 <body>
     <?php include 'includes/navbar.php'; ?>
-    <div class="container"> 
+    <div class="container">

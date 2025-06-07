@@ -7,7 +7,7 @@ $user = getUserData();
 
 $shipment_id = $_GET['id'] ?? null;
 if (!$shipment_id) {
-    header('Location: /imk/dashboard.php');
+    header('Location: /me/php-native/dashboard.php');
     exit();
 }
 
@@ -17,7 +17,7 @@ $stmt->execute([$shipment_id, $user['id']]);
 $shipment = $stmt->fetch();
 
 if (!$shipment) {
-    header('Location: /imk/dashboard.php');
+    header('Location: /me/php-native/dashboard.php');
     exit();
 }
 
@@ -50,55 +50,66 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Shipment - Logistics Maritime</title>
-    <link rel="stylesheet" href="/imk/logistikmaritim/css/index.css">
+    <link rel="stylesheet" href="/me/php-native/logistikmaritim/css/index.css">
     <style>
         .delete-shipment-container {
             max-width: 600px;
             margin: 20px auto;
             padding: 20px;
         }
+
         .shipment-details {
             background: #f8f9fa;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
         }
+
         .detail-row {
             display: grid;
             grid-template-columns: 150px 1fr;
             margin-bottom: 10px;
         }
+
         .detail-label {
             font-weight: bold;
         }
+
         .status-badge {
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 0.9em;
         }
+
         .status-pending {
             background: #ffd700;
             color: #000;
         }
+
         .status-in-transit {
             background: #007bff;
             color: white;
         }
+
         .status-delivered {
             background: #28a745;
             color: white;
         }
+
         .status-cancelled {
             background: #dc3545;
             color: white;
         }
+
         .delete-form {
             margin-top: 20px;
         }
+
         .delete-btn {
             background: #dc3545;
             color: white;
@@ -107,6 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 4px;
             cursor: pointer;
         }
+
         .cancel-btn {
             background: #6c757d;
             color: white;
@@ -117,29 +129,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             text-decoration: none;
             margin-left: 10px;
         }
+
         .error-message {
             color: red;
             margin-bottom: 15px;
         }
+
         .success-message {
             color: green;
             margin-bottom: 15px;
         }
     </style>
 </head>
+
 <body>
     <div class="delete-shipment-container">
         <h2>Delete Shipment</h2>
-        
+
         <?php if ($error): ?>
             <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
-        
+
         <?php if ($success): ?>
             <div class="success-message">
                 <?php echo htmlspecialchars($success); ?>
                 <br>
-                <a href="/imk/dashboard.php">Return to Dashboard</a>
+                <a href="/me/php-native/dashboard.php">Return to Dashboard</a>
             </div>
         <?php else: ?>
             <div class="shipment-details">
@@ -173,10 +188,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p>Are you sure you want to delete this shipment? This action cannot be undone.</p>
                 <form method="POST">
                     <button type="submit" class="delete-btn">Delete Shipment</button>
-                    <a href="/imk/view-shipment.php?id=<?php echo $shipment['id']; ?>" class="cancel-btn">Cancel</a>
+                    <a href="/me/php-native/view-shipment.php?id=<?php echo $shipment['id']; ?>" class="cancel-btn">Cancel</a>
                 </form>
             </div>
         <?php endif; ?>
     </div>
 </body>
-</html> 
+
+</html>

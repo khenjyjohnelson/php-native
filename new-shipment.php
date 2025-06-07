@@ -57,25 +57,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Shipment - Logistics Maritime</title>
-    <link rel="stylesheet" href="/imk/logistikmaritim/css/index.css">
+    <link rel="stylesheet" href="/me/php-native/logistikmaritim/css/index.css">
     <style>
         .new-shipment-container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
         }
+
         .form-group {
             margin-bottom: 20px;
         }
+
         .form-group label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
         }
+
         .form-group input,
         .form-group textarea {
             width: 100%;
@@ -83,9 +87,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+
         .items-container {
             margin-top: 20px;
         }
+
         .item-row {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 2fr auto;
@@ -93,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 10px;
             align-items: start;
         }
+
         .add-item-btn,
         .remove-item-btn {
             padding: 8px 15px;
@@ -100,14 +107,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 4px;
             cursor: pointer;
         }
+
         .add-item-btn {
             background: #28a745;
             color: white;
         }
+
         .remove-item-btn {
             background: #dc3545;
             color: white;
         }
+
         .submit-btn {
             background: #007bff;
             color: white;
@@ -117,55 +127,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             cursor: pointer;
             margin-top: 20px;
         }
+
         .error-message {
             color: red;
             margin-bottom: 15px;
         }
+
         .success-message {
             color: green;
             margin-bottom: 15px;
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header class="header">
         <div class="nav-container">
             <div class="logo">
                 <div class="logo-icon">
-                    <img src="/imk/logistikmaritim/image/logo.png" alt="logo" />
+                    <img src="/me/php-native/logistikmaritim/image/logo.png" alt="logo" />
                 </div>
                 <span>Logistik Maritime</span>
             </div>
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="/imk/index.php">Beranda</a></li>
-                    <li><a href="/imk/dashboard.php">Dashboard</a></li>
-                    <li><a href="/imk/logistikmaritim/html/informasi.php">Jadwal Pengiriman</a></li>
-                    <li><a href="/imk/logistikmaritim/html/kontak.php">Kontak Kami</a></li>
+                    <li><a href="/me/php-native/index.php">Beranda</a></li>
+                    <li><a href="/me/php-native/dashboard.php">Dashboard</a></li>
+                    <li><a href="/me/php-native/logistikmaritim/html/informasi.html">Jadwal Pengiriman</a></li>
+                    <li><a href="/me/php-native/logistikmaritim/html/kontak.html">Kontak Kami</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
                 <div class="user-menu">
-                    <span>Welcome, <?php echo htmlspecialchars($user['name']); ?></span>
-                    <a href="/imk/logout.php" class="btn-logout">Logout</a>
+                    <span>Welcome, <?php echo isset($user['name']) ? htmlspecialchars($user['name']) : 'User'; ?></span>
+                    <a href="/me/php-native/logout.php" class="btn-logout">Logout</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="new-shipment-container">
+    <div class="new-shipment-container" style="margin-top: 100px;">
         <h2>Create New Shipment</h2>
-        
+
         <?php if ($error): ?>
             <div class="error-message"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
-        
+
         <?php if ($success): ?>
             <div class="success-message">
                 <?php echo htmlspecialchars($success); ?>
                 <br>
-                <a href="/imk/dashboard.php">Return to Dashboard</a>
+                <a href="/me/php-native/dashboard.php">Return to Dashboard</a>
             </div>
         <?php else: ?>
             <form method="POST" id="shipmentForm">
@@ -233,4 +246,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
 </body>
-</html> 
+
+</html>

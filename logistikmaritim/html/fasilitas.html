@@ -1,776 +1,804 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fasilitas dan Pelayanan - Logistics Maritime</title>
-    <link rel="stylesheet" href="../css/fasilitas.css">
+    <link rel="stylesheet" href="../css/fasilitas.css" />
     <style>
-        /* Auth Buttons Styles */
+      /* Auth Buttons Styles */
+      .auth-buttons {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn-login,
+      .btn-signup {
+        padding: 8px 16px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login {
+        color: #2c5aa0;
+        border: 2px solid #2c5aa0;
+        background: transparent;
+      }
+
+      .btn-login:hover {
+        background: #2c5aa0;
+        color: white;
+      }
+
+      .btn-signup {
+        background: #2c5aa0;
+        color: white;
+        border: 2px solid #2c5aa0;
+      }
+
+      .btn-signup:hover {
+        background: #1e3f73;
+        border-color: #1e3f73;
+      }
+
+      /* Mobile Auth Buttons */
+      .mobile-auth-buttons {
+        display: flex;
+        gap: 10px;
+        padding: 15px 0;
+        border-top: 1px solid #eee;
+        margin-top: 10px;
+      }
+
+      .btn-login-mobile,
+      .btn-signup-mobile {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-login-mobile {
+        color: #2c5aa0;
+        border: 2px solid #2c5aa0;
+        background: transparent;
+      }
+
+      .btn-signup-mobile {
+        background: #2c5aa0;
+        color: white;
+        border: 2px solid #2c5aa0;
+      }
+
+      /* Mobile Menu Styles */
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-nav-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .mobile-nav-menu li {
+        border-bottom: 1px solid #eee;
+      }
+
+      .mobile-nav-menu a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      .mobile-dropdown-menu {
+        background: #f8f9fa;
+        display: none;
+      }
+
+      .mobile-dropdown.active .mobile-dropdown-menu {
+        display: block;
+      }
+
+      .mobile-dropdown-menu a {
+        padding-left: 40px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
         .auth-buttons {
-            display: flex;
-            gap: 10px;
-            align-items: center;
+          display: none;
         }
 
-        .btn-login, .btn-signup {
-            padding: 8px 16px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+        .nav-menu {
+          display: none;
         }
 
-        .btn-login {
-            color: #2c5aa0;
-            border: 2px solid #2c5aa0;
-            background: transparent;
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .mobile-menu-btn {
+          display: none;
         }
 
-        .btn-login:hover {
-            background: #2c5aa0;
-            color: white;
-        }
-
-        .btn-signup {
-            background: #2c5aa0;
-            color: white;
-            border: 2px solid #2c5aa0;
-        }
-
-        .btn-signup:hover {
-            background: #1e3f73;
-            border-color: #1e3f73;
-        }
-
-        /* Mobile Auth Buttons */
-        .mobile-auth-buttons {
-            display: flex;
-            gap: 10px;
-            padding: 15px 0;
-            border-top: 1px solid #eee;
-            margin-top: 10px;
-        }
-
-        .btn-login-mobile, .btn-signup-mobile {
-            flex: 1;
-            padding: 10px;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .btn-login-mobile {
-            color: #2c5aa0;
-            border: 2px solid #2c5aa0;
-            background: transparent;
-        }
-
-        .btn-signup-mobile {
-            background: #2c5aa0;
-            color: white;
-            border: 2px solid #2c5aa0;
-        }
-
-        /* Mobile Menu Styles */
         .mobile-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            z-index: 1000;
+          display: none !important;
         }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-nav-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .mobile-nav-menu li {
-            border-bottom: 1px solid #eee;
-        }
-
-        .mobile-nav-menu a {
-            display: block;
-            padding: 15px 20px;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .mobile-dropdown-menu {
-            background: #f8f9fa;
-            display: none;
-        }
-
-        .mobile-dropdown.active .mobile-dropdown-menu {
-            display: block;
-        }
-
-        .mobile-dropdown-menu a {
-            padding-left: 40px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .auth-buttons {
-                display: none;
-            }
-            
-            .nav-menu {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
-        @media (min-width: 769px) {
-            .mobile-menu-btn {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: none !important;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Header -->
     <header class="header">
-        <div class="nav-container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <img src="../image/logo.png" alt="logo" />
-                </div>
-                <span>Logistics Maritime</span>
-            </div>
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="../../index.html">Beranda</a></li>
-                    <li class="dropdown">
-                        <a href="#tentang" class="dropdown-toggle">
-                            Tentang Kami
-                            <span class="dropdown-arrow">▼</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="tentang.html">Tentang Perusahaan</a></li>
-                            <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                            <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
-                            <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
-                            <li><a href="informasi.html">Informasi Pengiriman</a></li>
-                            <li><a href="karir.html">Karir</a></li>
-                            <li><a href="tim.html">Tim</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="informasi.html">Jadwal Pengiriman</a></li>
-                    <li><a href="kontak.html">Kontak Kami</a></li>
-                </ul>
-            </nav>
-            
-            <!-- Auth Buttons -->
-            <div class="auth-buttons">
-                <a href="../../login.html" class="btn-login">Masuk</a>
-                <a href="../../register.html" class="btn-signup">Daftar</a>
-            </div>
-            
-            <!-- Mobile Menu Button -->
-            <div class="mobile-menu-btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <div class="nav-container">
+        <div class="logo">
+          <div class="logo-icon">
+            <img src="../image/logo.png" alt="logo" />
+          </div>
+          <span>Logistics Maritime</span>
         </div>
-        
-        <!-- Mobile Menu -->
-        <div class="mobile-menu">
-            <ul class="mobile-nav-menu">
-                <li><a href="../../index.html">Beranda</a></li>
-                <li class="mobile-dropdown">
-                    <a href="#tentang" class="mobile-dropdown-toggle">
-                        Tentang Kami
-                        <span class="mobile-dropdown-arrow">▼</span>
-                    </a>
-                    <ul class="mobile-dropdown-menu">
-                        <li><a href="tentang.html">Tentang Perusahaan</a></li>
-                        <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                        <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
-                        <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
-                        <li><a href="informasi.html">Informasi Pengiriman</a></li>
-                        <li><a href="karir.html">Karir</a></li>
-                        <li><a href="tim.html">Tim</a></li>
-                    </ul>
-                </li>
-                <li><a href="informasi.html">Jadwal Pengiriman</a></li>
-                <li><a href="kontak.html">Kontak Kami</a></li>
-                <li class="mobile-auth-buttons">
-                    <a href="../../login.html" class="btn-login-mobile">Masuk</a>
-                    <a href="../../register.html" class="btn-signup-mobile">Daftar</a>
-                </li>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="../../index.php">Beranda</a></li>
+            <li class="dropdown">
+              <a href="#tentang" class="dropdown-toggle">
+                Tentang Kami
+                <span class="dropdown-arrow">▼</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="tentang.html">Tentang Perusahaan</a></li>
+                <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
+                <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
+                <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
+                <li><a href="informasi.html">Informasi Pengiriman</a></li>
+                <li><a href="karir.html">Karir</a></li>
+                <li><a href="tim.html">Tim</a></li>
+              </ul>
+            </li>
+            <li><a href="informasi.html">Jadwal Pengiriman</a></li>
+            <li><a href="kontak.html">Kontak Kami</a></li>
+          </ul>
+        </nav>
+
+        <!-- Auth Buttons -->
+        <div class="auth-buttons">
+          <a href="../../login.html" class="btn-login">Masuk</a>
+          <a href="../../register.html" class="btn-signup">Daftar</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu">
+        <ul class="mobile-nav-menu">
+          <li><a href="../../index.php">Beranda</a></li>
+          <li class="mobile-dropdown">
+            <a href="#tentang" class="mobile-dropdown-toggle">
+              Tentang Kami
+              <span class="mobile-dropdown-arrow">▼</span>
+            </a>
+            <ul class="mobile-dropdown-menu">
+              <li><a href="tentang.html">Tentang Perusahaan</a></li>
+              <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
+              <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
+              <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
+              <li><a href="informasi.html">Informasi Pengiriman</a></li>
+              <li><a href="karir.html">Karir</a></li>
+              <li><a href="tim.html">Tim</a></li>
             </ul>
-        </div>
+          </li>
+          <li><a href="informasi.html">Jadwal Pengiriman</a></li>
+          <li><a href="kontak.html">Kontak Kami</a></li>
+          <li class="mobile-auth-buttons">
+            <a href="../../login.html" class="btn-login-mobile">Masuk</a>
+            <a href="../../register.html" class="btn-signup-mobile">Daftar</a>
+          </li>
+        </ul>
+      </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1>Fasilitas Dan Pelayanan</h1>
-                <p>Kami hadir untuk mendukung kelancaran distribusi Anda di seluruh Indonesia</p>
-            </div>
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1>Fasilitas Dan Pelayanan</h1>
+          <p>
+            Kami hadir untuk mendukung kelancaran distribusi Anda di seluruh
+            Indonesia
+          </p>
         </div>
+      </div>
     </section>
 
     <!-- Ports Section -->
     <section class="ports-section">
-        <div class="section-container">
-            <h2>PELABUHAN</h2>
-            <p class="section-subtitle">Kami hadir dengan jaringan 10 pelabuhan utama di Indonesia sebagai simpul distribusi strategis</p>
-            
-            <div class="ports-grid">
-                <!-- Port 1 -->
-                <div class="port-card">
-                    <div class="port-image">
-                        <img src="../image/batam.png" alt="Pelabuhan Batam">
-                    </div>
-                    <div class="port-info">
-                        <div class="port-location">
-                            <img src="../image/lokasi.png" alt="Location">
-                            <span>BATAM</span>
-                        </div>
-                        <p>Pelabuhan Batu Ampar Center</p>
-                    </div>
-                </div>
+      <div class="section-container">
+        <h2>PELABUHAN</h2>
+        <p class="section-subtitle">
+          Kami hadir dengan jaringan 10 pelabuhan utama di Indonesia sebagai
+          simpul distribusi strategis
+        </p>
 
-                <!-- Port 2 -->
-                <div class="port-card">
-                    <div class="port-image">
-                        <img src="../image/semarang.png" alt="Pelabuhan Semarang">
-                    </div>
-                    <div class="port-info">
-                        <div class="port-location">
-                            <img src="../image/lokasi.png" alt="Location">
-                            <span>SEMARANG</span>
-                        </div>
-                        <p>Pelabuhan Tanjung Emas</p>
-                    </div>
-                </div>
-
-                <!-- Port 3 -->
-                <div class="port-card">
-                    <div class="port-image">
-                        <img src="../image/jakarta.png" alt="Pelabuhan Jakarta">
-                    </div>
-                    <div class="port-info">
-                        <div class="port-location">
-                            <img src="../image/lokasi.png" alt="Location">
-                            <span>JAKARTA</span>
-                        </div>
-                        <p>Pelabuhan Tanjung Priok</p>
-                    </div>
-                </div>
-
-                <!-- Port 4 -->
-                <div class="port-card">
-                    <div class="port-image">
-                        <img src="../image/aceh.png" alt="Pelabuhan Aceh">
-                    </div>
-                    <div class="port-info">
-                        <div class="port-location">
-                            <img src="../image/lokasi.png" alt="Location">
-                            <span>ACEH</span>
-                        </div>
-                        <p>Pelabuhan Ulee Lheue</p>
-                    </div>
-                </div>
-
-                <!-- Port 5 -->
-                <div class="port-card">
-                    <div class="port-image">
-                        <img src="../image/timika.png" alt="Pelabuhan Timika">
-                    </div>
-                    <div class="port-info">
-                        <div class="port-location">
-                            <img src="../image/lokasi.png" alt="Location">
-                            <span>TIMIKA</span>
-                        </div>
-                        <p>Pelabuhan Pomako</p>
-                    </div>
-                </div>
-
-                <!-- Port 6 -->
-                <div class="port-card">
-                    <div class="port-image">
-                        <img src="../image/makassar.png" alt="Pelabuhan Makassar">
-                    </div>
-                    <div class="port-info">
-                        <div class="port-location">
-                            <img src="../image/lokasi.png" alt="Location">
-                            <span>MAKASSAR</span>
-                        </div>
-                        <p>Pelabuhan Soekarno Hatta</p>
-                    </div>
-                </div>
-
-                <!-- Port 7 -->
-                <div class="port-card">
-                    <div class="port-image">
-                        <img src="../image/pontianak.png" alt="Pelabuhan Pontianak">
-                    </div>
-                    <div class="port-info">
-                        <div class="port-location">
-                            <img src="../image/lokasi.png" alt="Location">
-                            <span>PONTIANAK</span>
-                        </div>
-                        <p>Pelabuhan Dwikora</p>
-                    </div>
-                </div>
-
-                <!-- Port 8 -->
-                <div class="port-card">
-                    <div class="port-image">
-                        <img src="../image/bali.png" alt="Pelabuhan Bali">
-                    </div>
-                    <div class="port-info">
-                        <div class="port-location">
-                            <img src="../image/lokasi.png" alt="Location">
-                            <span>BALI</span>
-                        </div>
-                        <p>Pelabuhan Benoa</p>
-                    </div>
-                </div>
+        <div class="ports-grid">
+          <!-- Port 1 -->
+          <div class="port-card">
+            <div class="port-image">
+              <img src="../image/batam.png" alt="Pelabuhan Batam" />
             </div>
+            <div class="port-info">
+              <div class="port-location">
+                <img src="../image/lokasi.png" alt="Location" />
+                <span>BATAM</span>
+              </div>
+              <p>Pelabuhan Batu Ampar Center</p>
+            </div>
+          </div>
+
+          <!-- Port 2 -->
+          <div class="port-card">
+            <div class="port-image">
+              <img src="../image/semarang.png" alt="Pelabuhan Semarang" />
+            </div>
+            <div class="port-info">
+              <div class="port-location">
+                <img src="../image/lokasi.png" alt="Location" />
+                <span>SEMARANG</span>
+              </div>
+              <p>Pelabuhan Tanjung Emas</p>
+            </div>
+          </div>
+
+          <!-- Port 3 -->
+          <div class="port-card">
+            <div class="port-image">
+              <img src="../image/jakarta.png" alt="Pelabuhan Jakarta" />
+            </div>
+            <div class="port-info">
+              <div class="port-location">
+                <img src="../image/lokasi.png" alt="Location" />
+                <span>JAKARTA</span>
+              </div>
+              <p>Pelabuhan Tanjung Priok</p>
+            </div>
+          </div>
+
+          <!-- Port 4 -->
+          <div class="port-card">
+            <div class="port-image">
+              <img src="../image/aceh.png" alt="Pelabuhan Aceh" />
+            </div>
+            <div class="port-info">
+              <div class="port-location">
+                <img src="../image/lokasi.png" alt="Location" />
+                <span>ACEH</span>
+              </div>
+              <p>Pelabuhan Ulee Lheue</p>
+            </div>
+          </div>
+
+          <!-- Port 5 -->
+          <div class="port-card">
+            <div class="port-image">
+              <img src="../image/timika.png" alt="Pelabuhan Timika" />
+            </div>
+            <div class="port-info">
+              <div class="port-location">
+                <img src="../image/lokasi.png" alt="Location" />
+                <span>TIMIKA</span>
+              </div>
+              <p>Pelabuhan Pomako</p>
+            </div>
+          </div>
+
+          <!-- Port 6 -->
+          <div class="port-card">
+            <div class="port-image">
+              <img src="../image/makassar.png" alt="Pelabuhan Makassar" />
+            </div>
+            <div class="port-info">
+              <div class="port-location">
+                <img src="../image/lokasi.png" alt="Location" />
+                <span>MAKASSAR</span>
+              </div>
+              <p>Pelabuhan Soekarno Hatta</p>
+            </div>
+          </div>
+
+          <!-- Port 7 -->
+          <div class="port-card">
+            <div class="port-image">
+              <img src="../image/pontianak.png" alt="Pelabuhan Pontianak" />
+            </div>
+            <div class="port-info">
+              <div class="port-location">
+                <img src="../image/lokasi.png" alt="Location" />
+                <span>PONTIANAK</span>
+              </div>
+              <p>Pelabuhan Dwikora</p>
+            </div>
+          </div>
+
+          <!-- Port 8 -->
+          <div class="port-card">
+            <div class="port-image">
+              <img src="../image/bali.png" alt="Pelabuhan Bali" />
+            </div>
+            <div class="port-info">
+              <div class="port-location">
+                <img src="../image/lokasi.png" alt="Location" />
+                <span>BALI</span>
+              </div>
+              <p>Pelabuhan Benoa</p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Port Services Section -->
     <section class="services-section">
-        <div class="section-container">
-            <h2>PELAYANAN PELABUHAN</h2>
-            
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="../image/dermaga.png" alt="Dermaga">
-                    </div>
-                    <h3>DERMAGA</h3>
-                </div>
+      <div class="section-container">
+        <h2>PELAYANAN PELABUHAN</h2>
 
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="../image/crane.png" alt="Crane">
-                    </div>
-                    <h3>CRANE</h3>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="../image/gudang.png" alt="Gudang">
-                    </div>
-                    <h3>GUDANG</h3>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card1">
-                    <div class="service-icon">
-                        <img src="../image/beacukai.png" alt="Bea Cukai">
-                    </div>
-                    <h3>BEA CUKAI</h3>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="../image/distribusi.png" alt="Distribusi">
-                    </div>
-                    <h3>DISTRIBUSI</h3>
-                </div>
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="../image/dermaga.png" alt="Dermaga" />
             </div>
+            <h3>DERMAGA</h3>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="../image/crane.png" alt="Crane" />
+            </div>
+            <h3>CRANE</h3>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="../image/gudang.png" alt="Gudang" />
+            </div>
+            <h3>GUDANG</h3>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card1">
+            <div class="service-icon">
+              <img src="../image/beacukai.png" alt="Bea Cukai" />
+            </div>
+            <h3>BEA CUKAI</h3>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <img src="../image/distribusi.png" alt="Distribusi" />
+            </div>
+            <h3>DISTRIBUSI</h3>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Ships Section -->
     <section class="ships-section">
-        <div class="section-container">
-            <h2>KAPAL</h2>
-            <p class="section-subtitle">Kami didukung oleh armada kapal logistik modern yang telah melayani pengiriman antarpulau secara cepat, aman, dan efisien.</p>
-            
-            <div class="ships-grid">
-                <!-- Ship 1 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal1.png" alt="LGMRT-001">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-001</span>
-                    </div>
-                </div>
+      <div class="section-container">
+        <h2>KAPAL</h2>
+        <p class="section-subtitle">
+          Kami didukung oleh armada kapal logistik modern yang telah melayani
+          pengiriman antarpulau secara cepat, aman, dan efisien.
+        </p>
 
-                <!-- Ship 2 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal2.png" alt="LGMRT-002">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-002</span>
-                    </div>
-                </div>
-
-                <!-- Ship 3 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal3.png" alt="LGMRT-003">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-003</span>
-                    </div>
-                </div>
-
-                <!-- Ship 4 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal4.png" alt="LGMRT-004">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-004</span>
-                    </div>
-                </div>
-
-                <!-- Ship 5 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal5.png" alt="LGMRT-005">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-005</span>
-                    </div>
-                </div>
-
-                <!-- Ship 6 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal6.png" alt="LGMRT-006">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-006</span>
-                    </div>
-                </div>
-
-                <!-- Ship 7 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal7.png" alt="LGMRT-007">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-007</span>
-                    </div>
-                </div>
-
-                <!-- Ship 8 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal8.png" alt="LGMRT-008">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-008</span>
-                    </div>
-                </div>
-
-                <!-- Ship 9 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal9.png" alt="LGMRT-009">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-009</span>
-                    </div>
-                </div>
-
-                <!-- Ship 10 -->
-                <div class="ship-card">
-                    <div class="ship-image">
-                        <img src="../image/kapal10.png" alt="LGMRT-010">
-                    </div>
-                    <div class="ship-info">
-                        <span>LGMRT-010</span>
-                    </div>
-                </div>
+        <div class="ships-grid">
+          <!-- Ship 1 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal1.png" alt="LGMRT-001" />
             </div>
+            <div class="ship-info">
+              <span>LGMRT-001</span>
+            </div>
+          </div>
+
+          <!-- Ship 2 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal2.png" alt="LGMRT-002" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-002</span>
+            </div>
+          </div>
+
+          <!-- Ship 3 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal3.png" alt="LGMRT-003" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-003</span>
+            </div>
+          </div>
+
+          <!-- Ship 4 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal4.png" alt="LGMRT-004" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-004</span>
+            </div>
+          </div>
+
+          <!-- Ship 5 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal5.png" alt="LGMRT-005" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-005</span>
+            </div>
+          </div>
+
+          <!-- Ship 6 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal6.png" alt="LGMRT-006" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-006</span>
+            </div>
+          </div>
+
+          <!-- Ship 7 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal7.png" alt="LGMRT-007" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-007</span>
+            </div>
+          </div>
+
+          <!-- Ship 8 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal8.png" alt="LGMRT-008" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-008</span>
+            </div>
+          </div>
+
+          <!-- Ship 9 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal9.png" alt="LGMRT-009" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-009</span>
+            </div>
+          </div>
+
+          <!-- Ship 10 -->
+          <div class="ship-card">
+            <div class="ship-image">
+              <img src="../image/kapal10.png" alt="LGMRT-010" />
+            </div>
+            <div class="ship-info">
+              <span>LGMRT-010</span>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Containers Section -->
     <section class="containers-section">
-        <div class="section-container">
-            <h2>KONTAINER</h2>
-            <p class="section-subtitle">Kami menyediakan berbagai jenis kontainer logistik untuk memenuhi kebutuhan pengiriman barang Anda</p>
-            
-            <div class="containers-grid">
-                <!-- Container 1 -->
-                <div class="container-card">
-                    <div class="container-image">
-                        <img src="../image/dry.png" alt="Dry Container">
-                    </div>
-                    <h3>Dry Container</h3>
-                </div>
+      <div class="section-container">
+        <h2>KONTAINER</h2>
+        <p class="section-subtitle">
+          Kami menyediakan berbagai jenis kontainer logistik untuk memenuhi
+          kebutuhan pengiriman barang Anda
+        </p>
 
-                <!-- Container 2 -->
-                <div class="container-card">
-                    <div class="container-image">
-                        <img src="../image/open.png" alt="Open Side Container">
-                    </div>
-                    <h3>Open Side Container</h3>
-                </div>
-
-                <!-- Container 3 -->
-                <div class="container-card">
-                    <div class="container-image">
-                        <img src="../image/reefer.png" alt="Reefer Container">
-                    </div>
-                    <h3>Reefer Container</h3>
-                </div>
-
-                <!-- Container 4 -->
-                <div class="container-card">
-                    <div class="container-image">
-                        <img src="../image/ventilated.png" alt="Ventilated Container">
-                    </div>
-                    <h3>Ventilated Container</h3>
-                </div>
-
-                <!-- Container 5 -->
-                <div class="container-card">
-                    <div class="container-image">
-                        <img src="../image/thermal.png" alt="Thermal Container">
-                    </div>
-                    <h3>Thermal Container</h3>
-                </div>
-
-                <!-- Container 6 -->
-                <div class="container-card">
-                    <div class="container-image">
-                        <img src="../image/flat.png" alt="Flat Rack Container">
-                    </div>
-                    <h3>Flat Rack Container</h3>
-                </div>
+        <div class="containers-grid">
+          <!-- Container 1 -->
+          <div class="container-card">
+            <div class="container-image">
+              <img src="../image/dry.png" alt="Dry Container" />
             </div>
+            <h3>Dry Container</h3>
+          </div>
+
+          <!-- Container 2 -->
+          <div class="container-card">
+            <div class="container-image">
+              <img src="../image/open.png" alt="Open Side Container" />
+            </div>
+            <h3>Open Side Container</h3>
+          </div>
+
+          <!-- Container 3 -->
+          <div class="container-card">
+            <div class="container-image">
+              <img src="../image/reefer.png" alt="Reefer Container" />
+            </div>
+            <h3>Reefer Container</h3>
+          </div>
+
+          <!-- Container 4 -->
+          <div class="container-card">
+            <div class="container-image">
+              <img src="../image/ventilated.png" alt="Ventilated Container" />
+            </div>
+            <h3>Ventilated Container</h3>
+          </div>
+
+          <!-- Container 5 -->
+          <div class="container-card">
+            <div class="container-image">
+              <img src="../image/thermal.png" alt="Thermal Container" />
+            </div>
+            <h3>Thermal Container</h3>
+          </div>
+
+          <!-- Container 6 -->
+          <div class="container-card">
+            <div class="container-image">
+              <img src="../image/flat.png" alt="Flat Rack Container" />
+            </div>
+            <h3>Flat Rack Container</h3>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Logistics Process Section -->
     <section class="process-section">
-        <div class="section-container">
-            <h2>PROSES LOGISTIK MARITIM</h2>
-            
-            <div class="process-flow">
-                <!-- Step 1 -->
-                <div class="process-step">
-                    <div class="process-icon">
-                        <img src="../image/pemesanan.png" alt="Pemesanan">
-                    </div>
-                    <h3>PEMESANAN</h3>
-                </div>
+      <div class="section-container">
+        <h2>PROSES LOGISTIK MARITIM</h2>
 
-                <div class="process-arrow">
-                    <img src="../image/panah.png" alt="Arrow">
-                </div>
-
-                <!-- Step 2 -->
-                <div class="process-step">
-                    <div class="process-icon">
-                        <img src="../image/bongkar.png" alt="Bongkar Muat">
-                    </div>
-                    <h3>BONGKAR MUAT</h3>
-                </div>
-
-                <div class="process-arrow">
-                    <img src="../image/panah.png" alt="Arrow">
-                </div>
-
-                <!-- Step 3 -->
-                <div class="process-step">
-                    <div class="process-icon">
-                        <img src="../image/pengiriman.png" alt="Pengiriman">
-                    </div>
-                    <h3>PENGIRIMAN</h3>
-                </div>
-
-                <div class="process-arrow">
-                    <img src="../image/panah.png" alt="Arrow">
-                </div>
-
-                <!-- Step 4 -->
-                <div class="process-step">
-                    <div class="process-icon">
-                        <img src="../image/pelacakan.png" alt="Pelacakan">
-                    </div>
-                    <h3>PELACAKAN</h3>
-                </div>
-
-                <div class="process-arrow">
-                    <img src="../image/panah.png" alt="Arrow">
-                </div>
-
-                <!-- Step 5 -->
-                <div class="process-step">
-                    <div class="process-icon">
-                        <img src="../image/pengantaran.png" alt="Pengantaran">
-                    </div>
-                    <h3>PENGANTARAN</h3>
-                </div>
+        <div class="process-flow">
+          <!-- Step 1 -->
+          <div class="process-step">
+            <div class="process-icon">
+              <img src="../image/pemesanan.png" alt="Pemesanan" />
             </div>
+            <h3>PEMESANAN</h3>
+          </div>
+
+          <div class="process-arrow">
+            <img src="../image/panah.png" alt="Arrow" />
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step">
+            <div class="process-icon">
+              <img src="../image/bongkar.png" alt="Bongkar Muat" />
+            </div>
+            <h3>BONGKAR MUAT</h3>
+          </div>
+
+          <div class="process-arrow">
+            <img src="../image/panah.png" alt="Arrow" />
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step">
+            <div class="process-icon">
+              <img src="../image/pengiriman.png" alt="Pengiriman" />
+            </div>
+            <h3>PENGIRIMAN</h3>
+          </div>
+
+          <div class="process-arrow">
+            <img src="../image/panah.png" alt="Arrow" />
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step">
+            <div class="process-icon">
+              <img src="../image/pelacakan.png" alt="Pelacakan" />
+            </div>
+            <h3>PELACAKAN</h3>
+          </div>
+
+          <div class="process-arrow">
+            <img src="../image/panah.png" alt="Arrow" />
+          </div>
+
+          <!-- Step 5 -->
+          <div class="process-step">
+            <div class="process-icon">
+              <img src="../image/pengantaran.png" alt="Pengantaran" />
+            </div>
+            <h3>PENGANTARAN</h3>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Logistics Network Map Section -->
     <section class="map-section">
-        <div class="section-container">
-            <h2>PETA JARINGAN LOGISTIK</h2>
-            
-            <div class="map-container">
-                <iframe src="../map/mapfasilitas.html" width="100%" height="520" frameborder="0"></iframe>
-            </div>
-            
+      <div class="section-container">
+        <h2>PETA JARINGAN LOGISTIK</h2>
+
+        <div class="map-container">
+          <iframe
+            src="../map/mapfasilitas.html"
+            width="100%"
+            height="520"
+            frameborder="0"
+          ></iframe>
         </div>
+      </div>
     </section>
 
-     <!-- Footer -->
-     <footer class="footer" id="kontak">
-        <div class="footer-container">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <div class="footer-logo-icon">
-                        <img src="../image/logo.png" alt="logo" />
-                    </div>
-                    <div>
-                        <h3>Logistics Maritime</h3>
-                        <p>Mengirim barang dengan efisien, tepat, dan profesional</p>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer class="footer" id="kontak">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">
+              <img src="../image/logo.png" alt="logo" />
             </div>
-            
-            <div class="footer-section">
-                <h4>Navigasi</h4>
-                <ul>
-                    <li><a href="../../index.html">Beranda</a></li>
-                    <li><a href="tentang.html">Tentang Perusahaan</a></li>
-                    <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
-                    <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
-                    <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
-                    <li><a href="informasi.html">Informasi Pengiriman</a></li>
-                    <li><a href="karir.html">Karir</a></li>
-                    <li><a href="tim.html">Tim</a></li>
-                </ul>
+            <div>
+              <h3>Logistics Maritime</h3>
+              <p>Mengirim barang dengan efisien, tepat, dan profesional</p>
             </div>
-            
-            <div class="footer-section">
-                <h4>Kontak Kami</h4>
-                <p><strong>Kantor Pusat</strong><br>
-                Jalan Pelabuhan Gang Pantai Indah No 72</p>
-                
-                <div class="social-icons">
-                    <a href="#" class="social-icon">
-                        <img src="../image/wa.png" alt="WhatsApp">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/ig.png" alt="Instagram">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/fb.png" alt="Facebook">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/tt.png" alt="TikTok">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/tw.png" alt="Twitter">
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../image/ld.png" alt="LinkedIn">
-                    </a>
-                </div>
-                
-                <p><strong>Telepon Pusat</strong><br>
-                +6212-3456-7810</p>
-                
-                <p><strong>Email</strong><br>
-                logisticmaritime@gmail.com</p>
-            </div>
+          </div>
         </div>
-        
-        <div class="footer-bottom">
-            <p>© 2025 Logistics Maritime. All rights reserved</p>
+
+        <div class="footer-section">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="../../index.php">Beranda</a></li>
+            <li><a href="tentang.html">Tentang Perusahaan</a></li>
+            <li><a href="fasilitas.html">Fasilitas dan Pelayanan</a></li>
+            <li><a href="jaminan.html">Jaminan Pelayanan</a></li>
+            <li><a href="syarat.html">Syarat dan Ketentuan</a></li>
+            <li><a href="informasi.html">Informasi Pengiriman</a></li>
+            <li><a href="karir.html">Karir</a></li>
+            <li><a href="tim.html">Tim</a></li>
+          </ul>
         </div>
+
+        <div class="footer-section">
+          <h4>Kontak Kami</h4>
+          <p>
+            <strong>Kantor Pusat</strong><br />
+            Jalan Pelabuhan Gang Pantai Indah No 72
+          </p>
+
+          <div class="social-icons">
+            <a href="#" class="social-icon">
+              <img src="../image/wa.png" alt="WhatsApp" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/ig.png" alt="Instagram" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/fb.png" alt="Facebook" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/tt.png" alt="TikTok" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/tw.png" alt="Twitter" />
+            </a>
+            <a href="#" class="social-icon">
+              <img src="../image/ld.png" alt="LinkedIn" />
+            </a>
+          </div>
+
+          <p>
+            <strong>Telepon Pusat</strong><br />
+            +6212-3456-7810
+          </p>
+
+          <p>
+            <strong>Email</strong><br />
+            logisticmaritime@gmail.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Logistics Maritime. All rights reserved</p>
+      </div>
     </footer>
 
     <script>
-        // Animation-only JavaScript
-        document.addEventListener('DOMContentLoaded', function() {
-            // Dropdown animation
-            const dropdown = document.querySelector('.dropdown');
-            const dropdownToggle = document.querySelector('.dropdown-toggle');
+      // Animation-only JavaScript
+      document.addEventListener('DOMContentLoaded', function () {
+        // Dropdown animation
+        const dropdown = document.querySelector('.dropdown');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
 
-            if (dropdown && dropdownToggle) {
-                dropdownToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-                });
+        if (dropdown && dropdownToggle) {
+          dropdownToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+          });
 
-                document.addEventListener('click', function(e) {
-                    if (!dropdown.contains(e.target)) {
-                        dropdown.classList.remove('active');
-                    }
-                });
+          document.addEventListener('click', function (e) {
+            if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('active');
             }
+          });
+        }
 
-            // Mobile menu animation
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    mobileMenuBtn.classList.toggle('active');
-                    mobileMenu.classList.toggle('active');
-                });
-            }
+        // Mobile menu animation
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
 
-            // Mobile dropdown animation
-            const mobileDropdown = document.querySelector('.mobile-dropdown');
-            const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
-            
-            if (mobileDropdown && mobileDropdownToggle) {
-                mobileDropdownToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    mobileDropdown.classList.toggle('active');
-                });
-            }
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener('click', function () {
+            mobileMenuBtn.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+          });
+        }
 
-            // Card hover animations
-            const cards = document.querySelectorAll('.port-card, .ship-card, .container-card, .service-card, .service-card1, .process-step');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
+        // Mobile dropdown animation
+        const mobileDropdown = document.querySelector('.mobile-dropdown');
+        const mobileDropdownToggle = document.querySelector(
+          '.mobile-dropdown-toggle'
+        );
+
+        if (mobileDropdown && mobileDropdownToggle) {
+          mobileDropdownToggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            mobileDropdown.classList.toggle('active');
+          });
+        }
+
+        // Card hover animations
+        const cards = document.querySelectorAll(
+          '.port-card, .ship-card, .container-card, .service-card, .service-card1, .process-step'
+        );
+        cards.forEach(card => {
+          card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-10px)';
+            this.style.transition = 'transform 0.3s ease';
+          });
+
+          card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+          });
         });
+      });
     </script>
-</body>
+  </body>
 </html>

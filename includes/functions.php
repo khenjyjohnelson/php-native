@@ -16,16 +16,16 @@ function sanitize_input($data) {
 /**
  * Check if user is logged in
  */
-function is_logged_in() {
-    return isset($_SESSION['user_id']);
-}
+// function is_logged_in() {
+//     return isset($_SESSION['user_id']);
+// }
 
 /**
  * Check if user is admin
  */
-function is_admin() {
-    return isset($_SESSION['role']) && $_SESSION['role'] == 'admin';
-}
+// function is_admin() {
+//     return isset($_SESSION['role']) && $_SESSION['role'] == 'admin';
+// }
 
 /**
  * Redirect to specified URL
@@ -38,24 +38,24 @@ function redirect($url) {
 /**
  * Display flash message
  */
-function set_flash_message($type, $message) {
-    $_SESSION['flash_message'] = [
-        'type' => $type,
-        'message' => $message
-    ];
-}
+// function set_flash_message($type, $message) {
+//     $_SESSION['flash_message'] = [
+//         'type' => $type,
+//         'message' => $message
+//     ];
+// }
 
 /**
  * Get and clear flash message
  */
-function get_flash_message() {
-    if (isset($_SESSION['flash_message'])) {
-        $message = $_SESSION['flash_message'];
-        unset($_SESSION['flash_message']);
-        return $message;
-    }
-    return null;
-}
+// function get_flash_message() {
+//     if (isset($_SESSION['flash_message'])) {
+//         $message = $_SESSION['flash_message'];
+//         unset($_SESSION['flash_message']);
+//         return $message;
+//     }
+//     return null;
+// }
 
 /**
  * Format date
@@ -149,4 +149,4 @@ function can_access_shipment($user_id, $shipment_id) {
     $stmt->bind_param("ii", $shipment_id, $user_id);
     $stmt->execute();
     return $stmt->get_result()->num_rows > 0 || is_admin();
-} 
+}
